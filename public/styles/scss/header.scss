@@ -1,0 +1,103 @@
+@import './mixin.scss';
+
+// header top
+.header-top {
+  height: var(--header-top-height);
+}
+
+.header-logo {
+  max-width: 320px;
+  max-height: 56px;
+}
+
+.search-bar i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+
+  @include transition;
+  @include hoverScale;
+}
+
+// navigation
+.header-nav {
+  &-wrap {
+    background-color: var(--primary-color);
+    height: var(--nav-height);
+    box-shadow: 0 2px 8px 0px rgba(#111, 0.5);
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+    }
+  }
+
+  &-item {
+    padding: 0 1.8rem;
+    font-size: 1.6rem;
+
+    border-left: solid 1px var(--dark-color);
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    @include transition;
+    &:hover,
+    &:active {
+      background-color: var(--dark-color);
+
+      // Hiển thị sub menu
+      .sub-menu {
+        transform: none;
+        visibility: visible;
+      }
+    }
+
+    &.active {
+      background-color: var(--dark-color);
+    }
+  }
+
+  &-item:last-child {
+    border-right: solid 1px var(--dark-color);
+  }
+
+  &-link {
+    color: var(--contrast-color) !important;
+  }
+}
+
+// sub menu
+.sub-menu {
+  background-color: var(--body-bg-color);
+  box-shadow: 0 2px 8px 1px rgba(#111, 0.2);
+  padding: 0.6rem 0;
+
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  z-index: 999;
+
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 35rem;
+
+  @include transition;
+  transform: scaleY(0);
+  visibility: hidden;
+
+  &-item {
+    width: 100%;
+    padding: 0.8rem 2.8rem;
+    @include transition;
+    color: var(--medium-grey);
+
+    &:hover,
+    &:active {
+      background-color: var(--light-color);
+      color: var(--secondary-color);
+    }
+  }
+}

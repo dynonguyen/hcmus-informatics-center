@@ -1,0 +1,12 @@
+// scale when hover
+@mixin hoverScale($rate: 1.1) {
+  &:hover,
+  &:active {
+    transform: scale($rate);
+  }
+}
+
+// transition
+@mixin transition($duration: 0.25s) {
+  transition: all $duration ease-in-out;
+}

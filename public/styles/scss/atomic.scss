@@ -29,6 +29,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  &-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 //width, height 100%
@@ -38,4 +44,25 @@
 
 .h-100 {
   height: 100%;
+}
+
+// input
+input.us-input {
+  border: solid 1px var(--light-grey);
+  outline: none;
+  border-radius: 6px;
+  color: var(--text-color);
+
+  padding: 0.4rem 1.8rem;
+  font-size: 1.4rem;
+
+  &.large {
+    padding: 0.8rem 2.2rem;
+    font-size: 1.5rem;
+  }
+}
+
+// cursor pointer
+.cursor-pointer {
+  cursor: pointer;
 }
