@@ -127,4 +127,37 @@
   font-size: 1.6rem;
 }
 
+.support-util {
+  margin: 3.2rem auto;
+}
+
+.support-util-box {
+  margin-bottom: 16px;
+}
+.support-util-box img {
+  width: 15rem;
+  height: 15rem;
+  transition: all 0.25s ease-in-out;
+}
+.support-util-box img:hover, .support-util-box img:active {
+  transform: scale(1.05);
+}
+.support-util-box h4 {
+  text-align: center;
+  margin: 1.2rem 0;
+  font-size: 2.2rem;
+  color: var(--grey);
+  font-weight: 400;
+  transition: all 0.25s ease-in-out;
+}
+.support-util-box h4:hover, .support-util-box h4:active {
+  color: var(--secondary-color);
+}
+.support-util-box p {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  text-align: center;
+  max-width: 80%;
+}
+
 /*# sourceMappingURL=home.css.map */

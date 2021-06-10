@@ -23,7 +23,7 @@ $sliderHeight: 36rem;
   height: $sliderHeight;
 }
 
-// filter
+// section: filter
 .filter-wrapper {
   background-color: rgba(#111, 0.65);
   width: 100%;
@@ -42,7 +42,7 @@ $sliderHeight: 36rem;
   }
 }
 
-// education program
+// section: education program
 .edu-program-wrapper {
   position: relative;
   background-image: url('/assets/images/edu-program-bg.jpg');
@@ -112,7 +112,7 @@ $sliderHeight: 36rem;
   }
 }
 
-// exam calendar
+// section: exam calendar
 .exam-calendar {
   border: solid 1px var(--white);
   padding: 0 4.8rem;
@@ -152,5 +152,47 @@ $sliderHeight: 36rem;
     margin-bottom: 1rem;
     color: var(--white);
     font-size: 1.6rem;
+  }
+}
+
+// section: support utilities
+.support-util {
+  margin: 3.2rem auto;
+}
+
+.support-util-box {
+  margin-bottom: 16px;
+
+  img {
+    width: 15rem;
+    height: 15rem;
+    @include transition;
+
+    &:hover,
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+
+  h4 {
+    text-align: center;
+    margin: 1.2rem 0;
+    font-size: 2.2rem;
+
+    color: var(--grey);
+    font-weight: 400;
+    @include transition;
+
+    &:hover,
+    &:active {
+      color: var(--secondary-color);
+    }
+  }
+
+  p {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    text-align: center;
+    max-width: 80%;
   }
 }
