@@ -196,3 +196,43 @@ $sliderHeight: 36rem;
     max-width: 80%;
   }
 }
+
+// section: teacher
+.teacher-wrapper {
+  background-image: url('/assets/images/teachers/teacher-bg.jpg');
+  background-size: cover;
+  height: 600px;
+}
+
+.teacher-slogan {
+  width: 25%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.teacher-list {
+  padding: 16px;
+  height: 100%;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.teacher-avatar {
+  img {
+    border-radius: 50%;
+    max-height: 165px;
+    @include transition(0.5s);
+
+    &:hover,
+    &:active {
+      border-radius: 0;
+    }
+  }
+}
