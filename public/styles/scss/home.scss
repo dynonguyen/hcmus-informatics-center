@@ -1,4 +1,5 @@
-$filterDistance: 5.6rem;
+@import './mixin.scss';
+$filterDistance: 4.8rem;
 $sliderHeight: 36rem;
 
 // Tuỳ chỉnh slider
@@ -38,5 +39,75 @@ $sliderHeight: 36rem;
     color: var(--white);
     font-size: 1.8rem;
     font-weight: normal;
+  }
+}
+
+// education program
+.edu-program-wrapper {
+  position: relative;
+  background-image: url('/assets/images/edu-program-bg.jpg');
+  margin: auto;
+  padding: 3rem 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.edu-program-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.edu-program-box {
+  min-height: 18.5rem;
+
+  opacity: 0.85;
+  padding: 2.4rem 0.8rem;
+  cursor: pointer;
+  text-align: center;
+
+  @include transition;
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
+
+  &-title {
+    color: var(--white);
+    font-size: 2rem;
+  }
+
+  &-icon {
+    margin-top: 8px;
+    width: 5.4rem;
+    height: 5.4rem;
+  }
+}
+
+// responsive
+@media only screen and (max-width: 992px) {
+  .edu-program-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .edu-program-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .edu-program-box {
+    min-height: 15rem;
+    padding: 1.8rem 0.8rem;
+
+    &-title {
+      font-size: 1.6rem;
+    }
+
+    &-icon {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
   }
 }

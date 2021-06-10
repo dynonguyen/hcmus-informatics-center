@@ -72,6 +72,20 @@
   background-color: var(--secondary-color);
 }
 
+.us-title {
+  font-size: 3.6rem;
+  color: var(--title-color);
+  font-weight: 700;
+  text-align: center;
+}
+
+.us-sub-title {
+  color: var(--title-color);
+  opacity: 0.85;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

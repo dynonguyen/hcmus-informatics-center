@@ -24,6 +24,8 @@
 .header-nav-wrap.fixed {
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 999;
 }
 .header-nav-item {
   padding: 0 1.8rem;

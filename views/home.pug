@@ -38,7 +38,18 @@ block content
             select#eduProgramSelect.us-field.large.mx-4(default-value="-1")
               //- option được render trong home.js
             button.us-btn.us-btn-secondary.large Tìm thông tin
-            
+
+    //- education program
+    section.edu-program 
+      .edu-program-title.container.mb-4
+        h1.us-title Chương trình đào tạo
+        p.us-sub-title Chương trình học đa dạng và thường xuyên cập nhật công nghệ mới. #[br/]Hãy để chúng tôi đồng hành cùng bạn trên hành trình chinh phục tri thức - vững vàng bước vào thế giới công nghệ 4.0.
+      .edu-program-wrapper 
+        #eduProgram.container.edu-program-container
+          //- render trong file home.js
+         
+    
+
 block script 
   script(src="/scripts/header.js") 
   script(src="/scripts/home.js") 
