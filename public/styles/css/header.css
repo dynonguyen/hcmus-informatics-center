@@ -49,7 +49,7 @@
   border-right: solid 1px var(--dark-color);
 }
 .header-nav-link {
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
 }
 
 .sub-menu {

@@ -1,6 +1,5 @@
 extends ./template/general.pug
 
-
 block style 
   link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
   link(rel="stylesheet" type="text/css" href="/styles/css/home.css" )
@@ -28,5 +27,18 @@ block content
           else
             .carousel-item
               img.d-block.w-100(src=`/assets/images/sliders/${val}.png` alt="Slide")
+
+    //- filter
+    section.filter.container 
+      .filter-wrapper
+        .filter-content
+          h1.filter-content-title.text-center.mb-4 Tìm khóa học quan tâm. #[strong Học chắc từ nền tảng - ứng dụng hiệu quả CNTT vào thực tế cuộc sống]
+          form.filter-content-form.flex-center
+            input.us-field.large(placeholder="Nhập môn học, từ khoá ...")
+            select#eduProgramSelect.us-field.large.mx-4(default-value="-1")
+              //- option được render trong home.js
+            button.us-btn.us-btn-secondary.large Tìm thông tin
+            
 block script 
   script(src="/scripts/header.js") 
+  script(src="/scripts/home.js") 

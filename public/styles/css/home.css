@@ -1,13 +1,35 @@
 #slider {
-  height: 32rem;
+  height: 36rem;
 }
 
+.carousel-indicators {
+  margin-bottom: 5.6rem;
+}
 .carousel-indicators li {
   width: 10px;
   height: 10px;
   border-radius: 100%;
   cursor: pointer;
   margin: 0 4px;
+}
+
+.carousel-item img {
+  height: 36rem;
+}
+
+.filter-wrapper {
+  background-color: rgba(17, 17, 17, 0.65);
+  width: 100%;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  position: relative;
+  bottom: 5.6rem;
+}
+
+.filter-content-title {
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: normal;
 }
 
 /*# sourceMappingURL=home.css.map */
