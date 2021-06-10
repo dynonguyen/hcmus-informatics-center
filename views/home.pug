@@ -1,13 +1,32 @@
 extends ./template/general.pug
 
+
 block style 
   link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+  link(rel="stylesheet" type="text/css" href="/styles/css/home.css" )
 
 block content
   .us-wrapper
+    //- header
     include ./mixin/header.pug
     +header
     
-    h1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis atque corporis cum a perspiciatis ipsa distinctio, veritatis quaerat vero aperiam sed omnis consequuntur tempore, commodi officia. Harum ducimus culpa nihil. Sed ratione consequuntur fuga fugit facere at odio asperiores officiis itaque facilis, ab nesciunt sapiente aspernatur magni dolorum inventore deleniti aperiam? Iusto eum, cum laudantium molestiae impedit natus? Eos vel ex fugit culpa sapiente in optio reprehenderit consequatur labore, natus veniam sequi exercitationem voluptates illum provident quaerat facilis quisquam consequuntur dolorem mollitia excepturi deleniti. In ducimus aperiam excepturi minus rem quaerat sunt. Quod, quos voluptas laborum consectetur eveniet quaerat officiis odio atque qui vitae praesentium magni voluptatum deleniti enim ea nostrum. Odit reprehenderit quasi ipsum officia fugiat et, unde sed quae dolorum quam quidem aspernatur nobis fuga voluptates vel fugit vero at perspiciatis beatae illo error? Ullam quaerat accusantium mollitia ipsa ut voluptas molestias ea ex voluptatum aliquam! Eius sunt minima ut reiciendis, temporibus dignissimos, omnis dolorum ea eligendi vitae voluptate, quam tenetur ex! Labore unde repellendus, aspernatur consectetur suscipit temporibus ipsa quibusdam distinctio, esse quae dolorem quis soluta tempora sunt! Molestiae natus dolorum velit aut harum quae eius sed, eveniet perferendis, dolor voluptates ab debitis voluptatem libero! Atque tenetur velit, aspernatur odio voluptate deserunt aliquam nostrum hic accusamus, omnis totam deleniti explicabo architecto? Non, veniam modi, veritatis quaerat distinctio soluta molestiae placeat laudantium quod architecto magnam minima. Cum maxime quia architecto itaque accusamus in possimus repellat ex eos! Culpa repudiandae soluta doloremque numquam, impedit quod atque corporis voluptatum ipsum at, vel porro doloribus assumenda veniam inventore tempore! Recusandae aliquid vitae eius ducimus consectetur ipsam voluptatum saepe nobis aperiam, impedit facilis nulla aliquam, nisi quos veritatis. Esse culpa asperiores blanditiis unde aliquam hic, consequuntur odit vero provident dolorum placeat sint autem, possimus amet voluptates eaque qui nisi officiis est, doloribus sequi distinctio impedit nam! Architecto, officia unde exercitationem omnis maxime modi asperiores obcaecati dolore? Eos, at illo? Sunt ratione quas cupiditate animi aliquid eos saepe velit accusantium perferendis minus, ipsa quibusdam architecto illo praesentium reiciendis soluta a similique repudiandae quam, nobis beatae nulla placeat cumque. Corrupti reiciendis adipisci velit assumenda quod veritatis sint tempore distinctio iste impedit aut, ut qui placeat eveniet. Itaque distinctio quas, fugiat eligendi omnis pariatur? Optio delectus sapiente corrupti voluptates laudantium. Reiciendis dolorem at facilis, iste sequi saepe, cupiditate commodi odit sapiente sunt rem dicta porro eius culpa ipsam officiis. Officiis voluptate laborum necessitatibus enim vel repellat rerum quisquam temporibus velit nostrum quaerat vero facilis asperiores repudiandae quasi ipsam, porro minus quia vitae libero qui itaque modi quod! Alias laboriosam porro odit repudiandae a, iure facilis unde temporibus nulla voluptate nostrum dolorum voluptatem quae consequatur similique corporis. Eligendi, labore necessitatibus! Non culpa odio eos cum! Soluta repellendus et nihil quis voluptatum in consequatur itaque numquam hic dicta praesentium sint odit aliquam repellat animi, aliquid labore alias aut? Ullam atque quasi harum autem nobis aliquid non deserunt maxime consectetur sed? Nihil neque dignissimos, sed deleniti beatae cumque consequuntur soluta voluptatem alias, unde earum obcaecati eius, minus sapiente?
+    //- slider
+    #slider.carousel.slide(data-ride="carousel" data-interval="3000")
+      ol.carousel-indicators
+        each val in [1, 2, 3, 4, 5, 6]
+          if(val === 1)
+            li.active(data-target="#slider" data-slide-to=val)
+          else 
+            li(data-target="#slider" data-slide-to=val)
+
+      .carousel-inner
+        each val in [1, 2, 3, 4, 5, 6]
+          if(val === 1)
+            .carousel-item.active
+              img.d-block.w-100(src=`/assets/images/sliders/${val}.png` alt="Slide")
+          else
+            .carousel-item
+              img.d-block.w-100(src=`/assets/images/sliders/${val}.png` alt="Slide")
 block script 
   script(src="/scripts/header.js") 
