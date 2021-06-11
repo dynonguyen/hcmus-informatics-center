@@ -81,4 +81,10 @@
   color: var(--secondary-color);
 }
 
+@media only screen and (max-width: 576px) {
+  .header-logo {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=header.css.map */

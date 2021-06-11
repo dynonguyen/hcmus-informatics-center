@@ -294,4 +294,19 @@ section {
   width: 100%;
 }
 
+@media only screen and (max-width: 576px) {
+  .teacher-avatar img {
+    max-height: 120px;
+  }
+
+  .student-blockquote .quote {
+    font-size: 1.6rem;
+  }
+
+  .student-avt {
+    height: 15rem;
+    width: 15rem;
+  }
+}
+
 /*# sourceMappingURL=home.css.map */
