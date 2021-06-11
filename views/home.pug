@@ -2,6 +2,7 @@ extends ./template/general.pug
 
 block style 
   link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+  link(rel="stylesheet" type="text/css" href="/styles/css/footer.css" )
   link(rel="stylesheet" type="text/css" href="/styles/css/home.css" )
 
 block content
@@ -43,7 +44,7 @@ block content
     section.edu-program 
       .edu-program-title.container.mb-5
         h1.us-title Chương trình đào tạo
-        p.us-sub-title Chương trình học đa dạng và thường xuyên cập nhật công nghệ mới. #[br/]Hãy để chúng tôi đồng hành cùng bạn trên hành trình chinh phục tri thức - vững vàng bước vào thế giới công nghệ 4.0.
+        p.us-sub-title Chương trình học đa dạng và thường xuyên cập nhật công nghệ mới. #[br]Hãy để chúng tôi đồng hành cùng bạn trên hành trình chinh phục tri thức - vững vàng bước vào thế giới công nghệ 4.0.
       .edu-program-wrapper 
         #eduProgram.container.edu-program-container
           //- render trong file home.js
@@ -186,12 +187,16 @@ block content
             li
               i.fas.fa-calendar-alt
               span Giờ làm việc
-            li #[b Từ thứ 2 đến thứ 6] #[br/] 07h30 đến 19h00 #[br/] #[b Thứ 7 đến Chủ nhật] #[br/]07h30 đến 17h00 #[br/] 
+            li #[b Từ thứ 2 đến thứ 6] #[br] 07h30 đến 19h00 #[br] #[b Thứ 7 đến Chủ nhật] #[br]07h30 đến 17h00 #[br] 
             li.my-2
-              a(href="#" style="color: #0080CC") Xem bản đồ lớn hơn
+              a(href="#" style="color: #0080CC" target="_blank") Xem bản đồ lớn hơn
         .map.col-12.col-md-6.col-lg-8
-          a#mapLink(href="#")
+          a#mapLink(href="#" target="_blank")
             img#mapImg(src="/assets/images/map/nvc.png" alt="Map Photo")
+
+    //- footer
+    include ./mixin/footer.pug
+    +footer
 
 block script 
   script(src="/scripts/header.js") 

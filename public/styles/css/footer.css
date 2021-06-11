@@ -1,0 +1,27 @@
+footer {
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: 3.2rem 0;
+}
+footer .footer-title {
+  border-bottom: solid 1px var(--white);
+  color: var(--white);
+  font-size: 1.8rem;
+  padding-bottom: 4px;
+}
+footer p,
+footer i {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+footer img {
+  max-width: 150px;
+}
+footer .fa-facebook-square {
+  font-size: 4.8rem;
+}
+footer a {
+  color: var(--white) !important;
+}
+
+/*# sourceMappingURL=footer.css.map */
