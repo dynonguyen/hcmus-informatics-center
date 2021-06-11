@@ -125,7 +125,7 @@ const MENU = [
 		subMenu: [],
 	},
 	{
-		to: '#',
+		to: '/account/login',
 		title: 'Đăng nhập',
 		subMenu: [],
 	},

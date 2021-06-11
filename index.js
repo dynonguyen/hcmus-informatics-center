@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const homeRoute = require('./routes/home.route');
 const morgan = require('morgan');
+const homeRoute = require('./routes/home.route');
+const accountRoute = require('./routes/account.route');
 
 // set port
 const PORT = process.env.PORT || 8888;
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/', homeRoute);
-
+app.use('/account', accountRoute);
 // Not found redirect
 app.use(function (req, res, next) {
 	res.status(404);

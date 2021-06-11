@@ -1,0 +1,26 @@
+extends ./template/general.pug
+block style 
+  link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+
+block content
+  .us-wrapper.w-100vw.h-100vh.position-relative
+    //- header
+    include ./mixin/header.pug
+    +header
+
+    //- login form
+    form#loginForm.us-form.flex-center--col.trans-center(method="POST" action="/account/login")
+      h1.us-form-title Đăng Nhập
+      i.us-form-icon.fas.fa-user-circle
+      #message.w-100
+        if message && message !== ''
+          p.alert.alert-danger.us-form-field(style="font-size:1.4rem") #{message}
+      input#name.us-field.us-form-field.medium(name="email" placeholder="Email" maxLength="100" autofocus type="text")
+      input#password.us-field.us-form-field.medium(name="password" placeholder="Mật khẩu" type="password")
+      a(href="/account/forgot-password" target="_blank").us-form-login.text-right.us-form-field.us-form-link Quên mật khẩu?
+      button#submitBtn.us-btn.us-btn-primary.medium.us-form-field(type="submit") Đăng nhập
+      p.us-form-field.us-form-text.text-center Bạn chưa có tài khoản? #[a.us-form-link(href="/account/signup") Đăng ký]
+
+block script 
+  script(src="/scripts/header.js") 
+  script(src="/scripts/login.js") 
