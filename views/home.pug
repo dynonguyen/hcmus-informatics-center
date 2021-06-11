@@ -41,7 +41,7 @@ block content
 
     //- education program
     section.edu-program 
-      .edu-program-title.container.mb-4
+      .edu-program-title.container.mb-5
         h1.us-title Chương trình đào tạo
         p.us-sub-title Chương trình học đa dạng và thường xuyên cập nhật công nghệ mới. #[br/]Hãy để chúng tôi đồng hành cùng bạn trên hành trình chinh phục tri thức - vững vàng bước vào thế giới công nghệ 4.0.
       .edu-program-wrapper 
@@ -59,7 +59,7 @@ block content
 
     //- Support utilities
     section.support-util.container 
-      h1.us-title.mb-5 Tiện ích hỗ trợ
+      h1.us-title-sec.mb-5 Tiện ích hỗ trợ
       .support-util-wrapper.row
         .support-util-box.flex-center--col.col-12.col-md-6
           a(href="#")
@@ -84,7 +84,7 @@ block content
 
     //- Teacher section
     section
-      h1.us-title.mb-5 Đội ngũ giáo viên
+      h1.us-title-sec.mb-5 Đội ngũ giáo viên
       .teacher-wrapper.w-100
         .container.position-relative.h-100
           img.teacher-slogan(src="/assets/images/teachers/slogan.png" alt="Slogan")
@@ -107,6 +107,45 @@ block content
             a.flex-center(href="#")
               li.teacher-avatar(data-toggle="tooltip" title="Trần Thị Hồng Yến")
                 img(src="/assets/images/teachers/tran_thi_hong_yen_lap_trinh_c.jpg" alt="Teacher Photo")
+
+    //- student's feeling
+    section.student-feel 
+      h1.us-title-sec.my-5 Cảm nhận học viên
+      .student-feel-wrapper.flex-center--ver.w-100
+        #studentSlider.carousel.slide(data-ride="carousel" data-interval="3000").container.h-100
+          .carousel-inner
+            .carousel-item.active
+              .flex-center-between
+                img.student-avt(src="/assets/images/student-feeling/hoc-vien-laravel-nha-phi.jpg", alt="Student Photo")
+                .student-blockquote
+                  p.quote Dù đã học rất nhiều khóa PHP tại Trung Tâm nhưng tôi vẫn muốn tìm hiểu thêm về mã nguồn mở PHP nên đã đăng ký học tiếp lớp Laravel Framework. Giảng viên rất nhiệt tình, bài giảng tì mỉ, bám sát với ...
+                  p.author Trần Nhã Phi - Lập trình Web với Laravel Framework 
+            .carousel-item
+              .flex-center-between
+                img.student-avt(src="/assets/images/student-feeling/hoc_vien_lap_trinh_minh_trinh.jpg", alt="Student Photo")
+                .student-blockquote
+                  p.quote Giáo viên dạy rất nhiệt tình và dễ hiểu, truyền đạt cho em các ví dụ và bài tập giúp em hiểu thêm về bài học và nắm vững kiến thức. Cơ sở vật chất tại trường rất tốt tạo thuận lợi rất nhiều cho việc ...
+                  p.author Dương Ngọc Minh Trinh - Lập trình C căn bản
+            .carousel-item
+              .flex-center-between
+                img.student-avt(src="/assets/images/student-feeling/hoc-vien-testing-thien-trang.jpg", alt="Student Photo")
+                .student-blockquote
+                  p.quote Sau 2 khóa học LCTP, em đã có 1 số kiến thức cơ bản về công việc kiểm thử phần mềm. Thầy cô giảng dạy rất nhiệt tình và truyền đạt rất nhiều kinh nghiệm thực tiễn cho học viên. Em mong trung tâm sẽ mở ...
+                  p.author Nguyễn Ngọc Phương Trang - kiểm thử phầm mềm tự động
+            .carousel-item
+              .flex-center-between
+                img.student-avt(src="/assets/images/student-feeling/hv_tester_tran_le_duy.jpg", alt="Student Photo")
+                .student-blockquote
+                  p.quote Vì sắp làm luận án tốt nghiệp nên em đã chọn lớp LCTP2 với mục đích học để biết thêm về testing. Nhưng khi vào học thì em thấy lớp LCTP2 rất bổ ích và thấy cô dạy rất nhiệt tình, vui vẻ, làm em thích ...
+                  p.author Trần Lê Duy - Kiểm thử phần mềm cơ bản
+          
+          //- slider arrow 
+          a.carousel-control-prev(href='#studentSlider' role='button' data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+          a.carousel-control-next(href='#studentSlider' role='button' data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
 
 block script 
   script(src="/scripts/header.js") 

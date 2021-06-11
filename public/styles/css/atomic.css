@@ -79,6 +79,25 @@
   text-align: center;
 }
 
+.us-title-sec {
+  font-size: 3.6rem;
+  color: var(--secondary-color);
+  position: relative;
+  font-weight: 500;
+  text-align: center;
+  text-transform: capitalize;
+}
+.us-title-sec::after {
+  content: "";
+  width: 120px;
+  height: 2px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--secondary-color);
+}
+
 .us-sub-title {
   color: var(--title-color);
   opacity: 0.85;

@@ -2,25 +2,30 @@
 $filterDistance: 4.8rem;
 $sliderHeight: 36rem;
 
+section {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 // Tuỳ chỉnh slider
 #slider {
   height: $sliderHeight;
-}
 
-.carousel-indicators {
-  margin-bottom: $filterDistance;
+  .carousel-item img {
+    height: $sliderHeight;
+  }
 
-  li {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    cursor: pointer;
-    margin: 0 4px;
+  .carousel-indicators {
+    margin-bottom: $filterDistance;
   }
 }
 
-.carousel-item img {
-  height: $sliderHeight;
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  margin: 0 4px;
 }
 
 // section: filter
@@ -234,5 +239,50 @@ $sliderHeight: 36rem;
     &:active {
       border-radius: 0;
     }
+  }
+}
+
+// section: student's feeling
+.student-feel-wrapper {
+  background-image: url('/assets/images/student-feeling/bg_Y_Kien_HV.jpg');
+  background-size: cover;
+  min-height: 360px;
+  padding: 2.4rem 0;
+}
+
+.student-avt {
+  border-radius: 50%;
+  height: 20rem;
+  width: 20rem;
+}
+
+.student-blockquote {
+  margin-left: 1.6rem;
+  position: relative;
+
+  &::before {
+    content: '"';
+    font-weight: 500;
+    font-size: 5.2rem;
+    color: var(--white);
+
+    position: absolute;
+    top: -2.6rem;
+    left: -2.6rem;
+  }
+
+  .quote {
+    color: var(--white);
+    text-align: justify;
+    font-size: 2.4rem;
+    font-style: italic;
+    line-height: 1.85;
+    max-width: 780px;
+  }
+
+  .author {
+    color: var(--white);
+    text-align: end;
+    font-size: 1.6rem;
   }
 }

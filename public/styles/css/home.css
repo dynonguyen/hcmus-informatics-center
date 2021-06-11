@@ -1,20 +1,24 @@
+section {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 #slider {
   height: 36rem;
 }
-
-.carousel-indicators {
+#slider .carousel-item img {
+  height: 36rem;
+}
+#slider .carousel-indicators {
   margin-bottom: 4.8rem;
 }
+
 .carousel-indicators li {
   width: 10px;
   height: 10px;
   border-radius: 100%;
   cursor: pointer;
   margin: 0 4px;
-}
-
-.carousel-item img {
-  height: 36rem;
 }
 
 .filter-wrapper {
@@ -192,6 +196,46 @@
 }
 .teacher-avatar img:hover, .teacher-avatar img:active {
   border-radius: 0;
+}
+
+.student-feel-wrapper {
+  background-image: url("/assets/images/student-feeling/bg_Y_Kien_HV.jpg");
+  background-size: cover;
+  min-height: 360px;
+  padding: 2.4rem 0;
+}
+
+.student-avt {
+  border-radius: 50%;
+  height: 20rem;
+  width: 20rem;
+}
+
+.student-blockquote {
+  margin-left: 1.6rem;
+  position: relative;
+}
+.student-blockquote::before {
+  content: '"';
+  font-weight: 500;
+  font-size: 5.2rem;
+  color: var(--white);
+  position: absolute;
+  top: -2.6rem;
+  left: -2.6rem;
+}
+.student-blockquote .quote {
+  color: var(--white);
+  text-align: justify;
+  font-size: 2.4rem;
+  font-style: italic;
+  line-height: 1.85;
+  max-width: 780px;
+}
+.student-blockquote .author {
+  color: var(--white);
+  text-align: end;
+  font-size: 1.6rem;
 }
 
 /*# sourceMappingURL=home.css.map */
