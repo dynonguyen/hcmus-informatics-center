@@ -120,7 +120,7 @@ const MENU = [
 		subMenu: [],
 	},
 	{
-		to: '#',
+		to: '/account/signup',
 		title: 'Đăng ký',
 		subMenu: [],
 	},

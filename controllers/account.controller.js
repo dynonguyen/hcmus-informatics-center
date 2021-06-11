@@ -1,6 +1,14 @@
+// Lấy trang đăng nhập
 exports.getLoginPage = (req, res) => {
 	return res.render('login.pug', {
 		title: 'Trung tâm Tin học HCMUS - Đăng nhập',
+	});
+};
+
+// Lấy trang đăng ký
+exports.getSignupPage = (req, res) => {
+	return res.render('signup.pug', {
+		title: 'Trung tâm Tin học HCMUS - Đăng ký',
 	});
 };
 
@@ -17,4 +25,10 @@ exports.postLogin = (req, res) => {
 			message: 'Mật khẩu không đúng !',
 		});
 	}
+};
+
+// Đăng ký
+exports.postSignup = (req, res) => {
+	const data = req.body;
+	console.log(data);
 };
