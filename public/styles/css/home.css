@@ -180,7 +180,7 @@ section {
 .teacher-list {
   padding: 16px;
   height: 100%;
-  width: 75%;
+  width: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -236,6 +236,34 @@ section {
   color: var(--white);
   text-align: end;
   font-size: 1.6rem;
+}
+
+.statistic {
+  margin: 3.6rem auto;
+}
+.statistic-title {
+  color: var(--title-color);
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+.statistic-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+.statistic-icon {
+  font-size: 5.4rem;
+}
+.statistic-count {
+  font-size: 3.6rem;
+  margin: 4px 0;
+  font-weight: 500;
+  color: var(--dark-grey);
+}
+.statistic-unit {
+  font-size: 1.8rem;
 }
 
 /*# sourceMappingURL=home.css.map */
