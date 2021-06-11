@@ -30,6 +30,20 @@
   justify-content: space-between;
 }
 
+#scrollBtn {
+  font-size: 3.6rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  transition: all 0.25s ease-in-out;
+}
+#scrollBtn:hover, #scrollBtn:active {
+  transform: scale(1.2);
+  color: var(--dark-grey);
+}
+
 .us-field {
   outline: none !important;
   border-radius: 6px;

@@ -39,6 +39,24 @@
   }
 }
 
+// scroll button
+#scrollBtn {
+  font-size: 3.6rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+
+  @include transition;
+  &:hover,
+  &:active {
+    transform: scale(1.2);
+    color: var(--dark-grey);
+  }
+}
+
 // mixin input, button
 @mixin input-button {
   outline: none !important;
