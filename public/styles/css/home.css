@@ -266,4 +266,32 @@ section {
   font-size: 1.8rem;
 }
 
+.contact-title {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 2.4rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.contact-infor {
+  border: solid 1px var(--light-grey);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.contact-infor li {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 2;
+}
+.contact-infor i {
+  margin-right: 8px;
+}
+
+.map {
+  width: 100%;
+}
+.map img {
+  width: 100%;
+}
+
 /*# sourceMappingURL=home.css.map */

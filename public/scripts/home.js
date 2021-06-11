@@ -152,4 +152,25 @@ $(document).ready(function () {
 
 	// render danh sách chương trình đào tạo
 	$('#eduProgram').html(renderEduProgramList(EDU_PROGRAM_BOX_LIST));
+
+	// bắt sự kiện thay đổi của ô chọn cơ sở
+	$('#mapSelect').change(function () {
+		const baseVal = $(this).val() || 'cs1';
+		const address = $(this).children('option:selected')[0].textContent;
+		console.log(address);
+
+		const mapGoogleSrc =
+			baseVal === 'cs1'
+				? 'https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+Khoa+h%E1%BB%8Dc+T%E1%BB%B1+nhi%C3%AAn+-+%C4%90H+Qu%E1%BB%91c+gia+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/@10.7626943,106.6801512,17z/data=!3m1!4b1!4m7!1m4!3m3!1s0x31752f1c06f4e1dd:0x43900f1d4539a3d!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaG9hIGjhu41jIFThu7Egbmhpw6puIC0gxJBIIFF14buRYyBnaWEgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!3b1!3m1!1s0x31752f1c06f4e1dd:0x43900f1d4539a3d?hl=vi'
+				: 'https://www.google.com/maps/dir//%C4%90%C3%A0o+t%E1%BA%A1o+%C4%90%E1%BB%93+h%E1%BB%8Da+-+Trung+T%C3%A2m+Tin+H%E1%BB%8Dc+-+%C4%90H+Khoa+H%E1%BB%8Dc+T%E1%BB%B1+Nhi%C3%AAn+TP.HCM/@10.7592211,106.6656649,18z/data=!4m8!4m7!1m0!1m5!1m1!1s0x0:0xbb9ce5971b969845!2m2!1d106.6666195!2d10.7592911?hl=vi';
+
+		const mapImgSrc =
+			baseVal === 'cs1'
+				? '/assets/images/map/nvc.png'
+				: '/assets/images/map/cs2.png';
+
+		$('#mapImg').attr('src', mapImgSrc);
+		$('#mapLink').attr('href', mapGoogleSrc);
+		$('#contactAddress').text(address);
+	});
 });

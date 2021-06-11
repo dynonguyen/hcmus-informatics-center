@@ -320,3 +320,38 @@ section {
     font-size: 1.8rem;
   }
 }
+
+// section: contact
+.contact {
+  &-title {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 2.4rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  &-infor {
+    border: solid 1px var(--light-grey);
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    li {
+      font-size: 1.6rem;
+      color: var(--text-color);
+      line-height: 2;
+    }
+
+    i {
+      margin-right: 8px;
+    }
+  }
+}
+
+.map {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}

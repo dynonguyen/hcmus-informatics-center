@@ -167,6 +167,32 @@ block content
           i.statistic-icon.fa.fa-image(style="color:#F54B0F")
           span.statistic-count 100+
           span.statistic-unit Chương trình đào tạo
+
+    //- contact & map
+    section.container
+      .row 
+        .contact.col-12.col-md-6.col-lg-4
+          h2.contact-title Liên hệ
+          select#mapSelect.w-100.us-field.large.mb-2(default-value="cs1")
+            option(value="cs1") Trụ sở chính: 227 Nguyễn Văn Cừ, Quận 5, Tp HCM
+            option(value="cs2") Cơ sở 137E Nguyễn Chí Thanh, P9, Q.5, Tp HCM
+          ul.contact-infor
+            li
+              i.fas.fa-map-marker-alt
+              span#contactAddress Trụ sở chính: 227 Nguyễn Văn Cừ, Quận 5, Tp HCM
+            li
+              i.fas.fa-phone-rotary
+              span (028) 38351056
+            li
+              i.fas.fa-calendar-alt
+              span Giờ làm việc
+            li #[b Từ thứ 2 đến thứ 6] #[br/] 07h30 đến 19h00 #[br/] #[b Thứ 7 đến Chủ nhật] #[br/]07h30 đến 17h00 #[br/] 
+            li.my-2
+              a(href="#" style="color: #0080CC") Xem bản đồ lớn hơn
+        .map.col-12.col-md-6.col-lg-8
+          a#mapLink(href="#")
+            img#mapImg(src="/assets/images/map/nvc.png" alt="Map Photo")
+
 block script 
   script(src="/scripts/header.js") 
   script(src="/scripts/home.js") 
