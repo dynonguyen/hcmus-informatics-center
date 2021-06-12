@@ -8,3 +8,11 @@
     padding-left: 0;
   }
 }
+
+// jquery validation error
+label.error {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+  color: var(--error-color);
+}

@@ -3,32 +3,35 @@ block style
   link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
 
 block content
-  .us-wrapper.w-100vw.h-100vh.position-relative
+  .us-wrapper.w-100vw.h-100vh.d-flex.flex-column
     //- header
     include ./mixin/header.pug
     +header
 
     //- signup form
-    form#signupForm.us-form.flex-center--col.trans-center(method="POST" action="/account/signup")
-      h1.us-form-title Đăng ký
-      i.us-form-icon.fas.fa-user-plus
-      #message.w-100
-        if message && message !== ''
-          p.alert.alert-danger.us-form-field(style="font-size:1.4rem") #{message}
-      input.us-field.us-form-field.medium(name="email" placeholder="Email" maxLength="100" autofocus type="text")
-      input.us-field.us-form-field.medium(name="name" placeholder="Họ tên" maxLength="100" type="text")
-      input.us-field.us-form-field.medium(name="phone" placeholder="Số điện thoại" maxLength="10" type="text")
-      input.us-field.us-form-field.medium(name="address" placeholder="Địa chỉ" maxLength="100" type="text")
-      select.us-field.us-form-field.medium(name="gender")
-        option(value="-1") Giới tính
-        option(value="0") Nam
-        option(value="1") Nữ
-      input.us-field.us-form-field.medium(name="birthday" placeholder="Ngày sinh" type="date")
-      input.us-field.us-form-field.medium(name="password" placeholder="Mật khẩu" type="password")
-      button#submitBtn.us-btn.us-btn-primary.medium.us-form-field(type="submit") Đăng ký
-      p.us-form-field.us-form-text.text-center Bạn đã có tài khoản? #[a.us-form-link(href="/account/login") Đăng nhập]
+    .flex-grow-1.flex-center
+      form#signupForm.us-form.flex-center--col(method="POST" action="/account/signup")
+        h1.us-form-title Đăng ký
+        i.us-form-icon.fas.fa-user-plus
+        #message.w-100
+          if message && message !== ''
+            p.alert.alert-danger.us-form-field(style="font-size:1.4rem") #{message}
+        input.us-field.us-form-field.medium(name="email" placeholder="Email" maxLength="100" autofocus type="text")
+        input.us-field.us-form-field.medium(name="name" placeholder="Họ tên" maxLength="100" type="text")
+        input.us-field.us-form-field.medium(name="phone" placeholder="Số điện thoại" maxLength="10" type="text")
+        input.us-field.us-form-field.medium(name="address" placeholder="Địa chỉ" maxLength="100" type="text")
+        select.us-field.us-form-field.medium(name="gender")
+          option(value="-1") Giới tính
+          option(value="0") Nam
+          option(value="1") Nữ
+        input.us-field.us-form-field.medium(name="birthday" placeholder="Ngày sinh" type="date")
+        input#password.us-field.us-form-field.medium(name="password" placeholder="Mật khẩu" type="password")
+        input.us-field.us-form-field.medium(name="rePassword" placeholder="Nhập lại mật khẩu" type="password")
+        button#submitBtn.us-btn.us-btn-primary.medium.us-form-field(type="submit") Đăng ký
+        p.us-form-field.us-form-text.text-center Bạn đã có tài khoản? #[a.us-form-link(href="/account/login") Đăng nhập]
 
 block script 
   script(src="/scripts/header.js") 
+  script(src="/scripts/constant.js") 
   script(src="/vendors/jquery-validation/jquery.validate.min.js") 
   script(src="/scripts/signup.js") 

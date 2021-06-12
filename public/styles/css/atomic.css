@@ -9,6 +9,10 @@
   margin: 0 auto;
 }
 
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -70,6 +74,9 @@
   padding: 0.6rem 1.6rem;
   font-size: 1.5rem;
   height: 3.6rem;
+}
+.us-field.error {
+  border: solid 1px var(--error-color);
 }
 
 .us-btn {
@@ -143,7 +150,7 @@
 
 .us-form {
   padding: 2.4rem 3.6rem;
-  box-shadow: 0 2px 14px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 14px 0px rgba(0, 0, 0, 0.18);
   width: 350px;
 }
 .us-form-title {

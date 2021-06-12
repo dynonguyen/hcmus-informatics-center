@@ -7,4 +7,11 @@
   padding-left: 0;
 }
 
-/*# sourceMappingURL=custom-bootstrap.css.map */
+label.error {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+  color: var(--error-color);
+}
+
+/*# sourceMappingURL=custom.css.map */
