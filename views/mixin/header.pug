@@ -7,7 +7,19 @@ mixin header
         input.us-field.mr-4(placeholder="Nhập từ khoá" maxLength="100")
         i.fal.fa-search.cursor-pointer
     nav#headerNavWrapper.header-nav-wrap.w-100 
-      ul#headerNav.header-nav.d-flex.h-100.container
-        //-  Navigation được render bởi file header.js
-
-
+      ul#headerNav.container.d-flex.h-100
+        //- Common navigation được render bởi file header.js
+        #commonNav.d-flex.h-100
+    
+        if !user
+          li.header-nav-item
+            a.header-nav-link(href="/account/signup") Đăng ký
+          li.header-nav-item
+            a.header-nav-link(href="/account/login") Đăng nhập
+        else 
+          li.header-nav-item
+              a.header-nav-link(href="/account/logout") Đăng xuất
+          li.header-nav-item.flex-center
+            a.header-nav-link(href=`/user/${user.MA_ND}`)= user.HO_TEN
+            - const imgSrc = user.AVATAR && user.AVATAR !== '' ? user.AVATAR : '/assets/icons/default-user.png'
+            img.ml-2(src=imgSrc alt="Avatar" height="36" width="36" style="border-radius:50%") 

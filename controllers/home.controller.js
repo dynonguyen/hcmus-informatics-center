@@ -1,8 +1,18 @@
+const { getShortUserInfo } = require('../services/common.service');
 const { getTeacherList } = require('../services/home.service');
 
 // URL: /
 exports.getHome = async (req, res, next) => {
 	try {
+		const { access_token } = req.signedCookies;
+		let user = null;
+		if (access_token) {
+			const userInfo = await getShortUserInfo(access_token);
+			if (userInfo) {
+				user = { ...userInfo };
+			}
+		}
+
 		const teacherList = await getTeacherList();
 		const studentFeelList = [
 			{
@@ -34,6 +44,7 @@ exports.getHome = async (req, res, next) => {
 			title: 'Trung tâm tin học Đại Học Khoa Học Tự Nhiên',
 			teacherList,
 			studentFeelList,
+			user,
 		});
 	} catch (error) {
 		console.error('GET HOME ERROR: ', error);

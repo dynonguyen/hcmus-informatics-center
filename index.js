@@ -5,8 +5,10 @@ const path = require('path');
 const morgan = require('morgan');
 const homeRoute = require('./routes/home.route');
 const accountRoute = require('./routes/account.route');
-const sqlConfig = require('./config/sql.config');
-const sql = require('mssql');
+const cookieParser = require('cookie-parser');
+
+const { userAuthenticate } = require('./middlewares/auth.middleware');
+
 // set port
 const PORT = process.env.PORT || 8888;
 
@@ -23,6 +25,7 @@ app.use(morgan('tiny'));
 // set up cookie, body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser(process.env.SIGNED_COOKIE || 'signed_cookie'));
 
 // routes
 app.use('/', homeRoute);

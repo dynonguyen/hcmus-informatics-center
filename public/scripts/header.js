@@ -115,18 +115,8 @@ const MENU = [
 		],
 	},
 	{
-		to: '#',
+		to: '#footer',
 		title: 'Liên hệ',
-		subMenu: [],
-	},
-	{
-		to: '/account/signup',
-		title: 'Đăng ký',
-		subMenu: [],
-	},
-	{
-		to: '/account/login',
-		title: 'Đăng nhập',
 		subMenu: [],
 	},
 ];
@@ -164,7 +154,7 @@ function renderNavigation(menu = []) {
 
 $(document).ready(function () {
 	// Render navigation
-	$('#headerNav').html(renderNavigation(MENU));
+	$('#commonNav').html(renderNavigation(MENU));
 
 	// Bắt sự kiên scroll để fixed header
 	window.addEventListener('scroll', function () {

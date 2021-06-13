@@ -19,6 +19,12 @@ exports.getSignupPage = (req, res) => {
 	});
 };
 
+// Đăng xuất
+exports.getLogout = (req, res) => {
+	res.clearCookie('access_token');
+	res.redirect('/');
+};
+
 // Đăng nhập
 exports.postLogin = async (req, res) => {
 	try {
@@ -33,8 +39,12 @@ exports.postLogin = async (req, res) => {
 			});
 		}
 
-		res.cookie('access_token', username);
-		return res.redirect(`/user/${username}`);
+		res.cookie('access_token', username, {
+			expires: new Date(Date.now() + 86400000),
+			httpOnly: true,
+			signed: true,
+		});
+		return res.redirect(`/`);
 	} catch (error) {
 		console.error('ERROR POST LOGIN: ', error);
 		return res.render('login.pug', {
