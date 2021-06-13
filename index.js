@@ -1,10 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const homeRoute = require('./routes/home.route');
 const accountRoute = require('./routes/account.route');
-
+const sqlConfig = require('./config/sql.config');
+const sql = require('mssql');
 // set port
 const PORT = process.env.PORT || 8888;
 
@@ -25,7 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use('/', homeRoute);
 app.use('/account', accountRoute);
-// Not found redirect
+
+// 404 Not found redirect
 app.use(function (req, res, next) {
 	res.status(404);
 
