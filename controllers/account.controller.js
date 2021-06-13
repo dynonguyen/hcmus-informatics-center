@@ -2,6 +2,7 @@ const {
 	isExistAccount,
 	createAccount,
 	createStudent,
+	login,
 } = require('../services/account.serivce');
 
 // Lấy trang đăng nhập
@@ -19,16 +20,26 @@ exports.getSignupPage = (req, res) => {
 };
 
 // Đăng nhập
-exports.postLogin = (req, res) => {
-	const { email = '', password = '' } = req.body;
+exports.postLogin = async (req, res) => {
+	try {
+		const { email = '', password = '' } = req.body;
 
-	if (email === 'tuannguyentn2504@gmail.com' && password === 'ABC') {
-		res.cookie('access_token', 'username');
-		return res.redirect('/user/tuan-nguyen');
-	} else {
-		res.render('login.pug', {
+		const username = await login(email, password);
+
+		if (!username) {
+			return res.render('login.pug', {
+				title: 'Trung tâm Tin học HCMUS - Đăng nhập',
+				message: 'Mật khẩu không đúng hoặc tài khoản không tồn tại',
+			});
+		}
+
+		res.cookie('access_token', username);
+		return res.redirect(`/user/${username}`);
+	} catch (error) {
+		console.error('ERROR POST LOGIN: ', error);
+		return res.render('login.pug', {
 			title: 'Trung tâm Tin học HCMUS - Đăng nhập',
-			message: 'Mật khẩu không đúng !',
+			message: 'Mật khẩu không đúng hoặc tài khoản không tồn tại',
 		});
 	}
 };

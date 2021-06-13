@@ -25,6 +25,7 @@ BEGIN
       )
 END;
 GO
+
 -- Tao nguoi dung
 CREATE PROCEDURE SP_CREATE_STUDENT
 @username VARCHAR(20), @name NVARCHAR(50), @age INT,
@@ -54,3 +55,14 @@ BEGIN
 END
 GO
 
+-- Dang nhap
+CREATE PROCEDURE SP_LOGIN
+@email VARCHAR(100), @password varchar(50)
+AS
+BEGIN
+	SELECT USERNAME FROM	dbo.TAI_KHOAN WHERE  EMAIL = @email AND MAT_KHAU = @password
+END
+GO	
+
+SELECT * FROM dbo.NGUOI_DUNG;
+SELECT * FROM dbo.TAI_KHOAN;

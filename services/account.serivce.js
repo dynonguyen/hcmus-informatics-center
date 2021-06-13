@@ -61,3 +61,19 @@ exports.createStudent = async (username, name, age, gender, address, phone) => {
 		throw error;
 	}
 };
+
+exports.login = async (email = '', password = '') => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const hashPw = md5(password);
+		const queryStr = `EXEC dbo.SP_LOGIN @email = '${email}', @password = '${hashPw}'`;
+
+		const result = await pool.request().query(queryStr);
+		const { recordset } = result;
+
+		if (recordset?.length > 0) return recordset[0].USERNAME;
+		return false;
+	} catch (error) {
+		throw error;
+	}
+};
