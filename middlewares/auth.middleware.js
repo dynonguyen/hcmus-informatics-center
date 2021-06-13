@@ -22,3 +22,20 @@ exports.userAuthenticate = async (req, res, next) => {
 		console.log('AUTH MIDDLEWARE ERROR: ', error);
 	}
 };
+
+exports.getUserId = async (req, res, next) => {
+	try {
+		const { access_token } = req.signedCookies;
+		if (access_token) {
+			const userInfo = await getShortUserInfo(access_token);
+			if (userInfo) {
+				res.locals.user = userInfo;
+			} else {
+				res.locals.user = null;
+			}
+		}
+		next();
+	} catch (error) {
+		throw error;
+	}
+};

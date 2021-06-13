@@ -203,7 +203,7 @@ VALUES
 ( 'gv-005',  -- MA_ND - varchar(20)
   N'Nguyễn Thị Diệu Hiên', -- HO_TEN - nvarchar(50)
   34,   -- TUOI - int
-  1,   -- GIOI_TINH - smallint
+  1,   -- GIOI_TINH - sma llint
   N'Đồng Nai', -- DIA_CHI - nvarchar(150)
   '0718462891',  -- SDT - char(11)
   '/assets/images/teachers/nguyen-thi-dieu-hien.jpg',  -- AVATAR - varchar(200)
@@ -231,4 +231,125 @@ VALUES
   '/assets/images/teachers/tran_thi_hong_yen_lap_trinh_c.jpg',  -- AVATAR - varchar(200)
   0    -- LOAI_NGUOI_DUNG - smallint
   );
-go
+GO
+
+-- THEM KHOA HOC --
+INSERT INTO dbo.KHOA_HOC (
+  MA_KH,
+  NHOM_KH,
+  HOC_PHI,
+  TEN_KH,
+  MO_TA,
+  TG_BAT_DAU,
+  TG_KET_THUC
+)
+VALUES
+( 'KH-001',        -- MA_KH - varchar(10)
+  1,         -- NHOM_KH - smallint
+  18600000,      -- HOC_PHI - money
+  N'CHUYÊN VIÊN THIẾT KẾ WEBSITE',       -- TEN_KH - nvarchar(50)
+  N'Dành cho người mới bắt đầu, Khóa 267 (KG 21/06/2021) sẽ học trực tuyến với giảng viên 100% đến khi có thông báo mới',       -- MO_TA - nvarchar(150)
+  '2021-07-15', -- TG_BAT_DAU - datetime
+  '2021-10-15'  -- TG_KET_THUC - datetime
+  )
+GO
+ 
+INSERT INTO dbo.KHOA_HOC (
+  MA_KH,
+  NHOM_KH,
+  HOC_PHI,
+  TEN_KH,
+  MO_TA,
+  TG_BAT_DAU,
+  TG_KET_THUC
+)
+VALUES
+( 'KH-002',        -- MA_KH - varchar(10)
+  0,         -- NHOM_KH - smallint
+  25500000,      -- HOC_PHI - money
+  N'Kỹ thuật viên thiết kế app mobile',       -- TEN_KH - nvarchar(50)
+  N'Công cụ design for App cơ bản, Layout App UI/UX (Figma), App UI (XD), UX Motion với Premiere, Đồ Án',       -- MO_TA - nvarchar(150)
+  '2021-07-16', -- TG_BAT_DAU - datetime
+  '2021-11-15'  -- TG_KET_THUC - datetime
+  );
+GO
+INSERT INTO dbo.KHOA_HOC (
+  MA_KH,
+  NHOM_KH,
+  HOC_PHI,
+  TEN_KH,
+  MO_TA,
+  TG_BAT_DAU,
+  TG_KET_THUC
+)
+VALUES
+( 'KH-003',        -- MA_KH - varchar(10)
+  1,         -- NHOM_KH - smallint
+  3350000,      -- HOC_PHI - money
+  N'Thiết kế giao diện Website toàn phần',       -- TEN_KH - nvarchar(50)
+  N'Thiết kế giao diện Website toàn phần',       -- MO_TA - nvarchar(150)
+  '2021-07-12', -- TG_BAT_DAU - datetime
+  '2021-11-12'  -- TG_KET_THUC - datetime
+);
+GO
+
+-- THEM LOP HOC --
+INSERT INTO dbo.LOP_HOC (
+  MA_LH,
+  MA_KH,
+  THOI_GIAN_HOC,
+  SL_TOI_DA,
+  SL_DA_DANG_KY,
+  NGAY_KHAI_GIANG,
+  DIA_DIEM_HOC
+)
+VALUES
+( 'LH-001',        -- MA_LH - varchar(10)
+  'KH-001',        -- MA_KH - varchar(10)
+  '360',        -- THOI_GIAN_HOC - varchar(10)
+  35,         -- SL_TOI_DA - int
+  15,         -- SL_DA_DANG_KY - int
+'2021-07-15', -- NGAY_KHAI_GIANG - date
+  1          -- DIA_DIEM_HOC - smallint
+  );
+  GO
+  
+INSERT INTO dbo.LOP_HOC (
+  MA_LH,
+  MA_KH,
+  THOI_GIAN_HOC,
+  SL_TOI_DA,
+  SL_DA_DANG_KY,
+  NGAY_KHAI_GIANG,
+  DIA_DIEM_HOC
+)
+VALUES
+( 'LH-002',        -- MA_LH - varchar(10)
+  'KH-002',        -- MA_KH - varchar(10)
+  '88',        -- THOI_GIAN_HOC - varchar(10)
+  32,         -- SL_TOI_DA - int
+  28,         -- SL_DA_DANG_KY - int
+'2021-07-16', -- NGAY_KHAI_GIANG - date
+  0          -- DIA_DIEM_HOC - smallint
+  );
+  GO
+
+INSERT INTO dbo.LOP_HOC (
+  MA_LH,
+  MA_KH,
+  THOI_GIAN_HOC,
+  SL_TOI_DA,
+  SL_DA_DANG_KY,
+  NGAY_KHAI_GIANG,
+  DIA_DIEM_HOC
+)
+VALUES
+( 'LH-003',        -- MA_LH - varchar(10)
+  'KH-003',        -- MA_KH - varchar(10)
+  '188',        -- THOI_GIAN_HOC - varchar(10)
+  45,         -- SL_TOI_DA - int
+  34,         -- SL_DA_DANG_KY - int
+'2021-07-16', -- NGAY_KHAI_GIANG - date
+  2          -- DIA_DIEM_HOC - smallint
+  );
+  GO

@@ -1,0 +1,44 @@
+.course {
+  margin: 1.2rem 0;
+
+  &-header {
+    background-color: var(--primary-color);
+    padding: 1.6rem 1.4rem;
+    cursor: pointer;
+  }
+
+  &-title,
+  &-icon {
+    color: var(--white);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none !important;
+    margin: 0;
+  }
+}
+
+.course-content {
+  * {
+    font-size: 1.6rem;
+  }
+
+  .sub-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+  }
+
+  strong {
+    color: var(--accent-color);
+  }
+
+  b {
+    color: var(--text-color);
+  }
+
+  p {
+    margin: 0;
+  }
+}

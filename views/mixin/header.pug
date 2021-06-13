@@ -19,7 +19,8 @@ mixin header
         else 
           li.header-nav-item
               a.header-nav-link(href="/account/logout") Đăng xuất
-          li.header-nav-item.flex-center
-            a.header-nav-link(href=`/user/${user.MA_ND}`)= user.HO_TEN
-            - const imgSrc = user.AVATAR && user.AVATAR !== '' ? user.AVATAR : '/assets/icons/default-user.png'
-            img.ml-2(src=imgSrc alt="Avatar" height="36" width="36" style="border-radius:50%") 
+          li.header-nav-item
+            a(href=`/user/${user.MA_ND}`).flex-center--ver
+              .header-nav-link= user.HO_TEN
+              - const imgSrc = user.AVATAR && user.AVATAR !== '' ? user.AVATAR : '/assets/icons/default-user.png'
+              img.ml-2(src=imgSrc alt="Avatar" height="28" width="28" style="border-radius:50%") 

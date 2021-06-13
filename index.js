@@ -7,7 +7,11 @@ const homeRoute = require('./routes/home.route');
 const accountRoute = require('./routes/account.route');
 const cookieParser = require('cookie-parser');
 
-const { userAuthenticate } = require('./middlewares/auth.middleware');
+const {
+	userAuthenticate,
+	getUserId,
+} = require('./middlewares/auth.middleware');
+const openingScheduleRoute = require('./routes/opening-schedule');
 
 // set port
 const PORT = process.env.PORT || 8888;
@@ -30,6 +34,7 @@ app.use(cookieParser(process.env.SIGNED_COOKIE || 'signed_cookie'));
 // routes
 app.use('/', homeRoute);
 app.use('/account', accountRoute);
+app.use('/opening-schedule', getUserId, openingScheduleRoute);
 
 // 404 Not found redirect
 app.use(function (req, res, next) {

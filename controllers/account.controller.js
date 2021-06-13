@@ -8,14 +8,14 @@ const {
 // Lấy trang đăng nhập
 exports.getLoginPage = (req, res) => {
 	return res.render('login.pug', {
-		title: 'Trung tâm Tin học HCMUS - Đăng nhập',
+		title: ' Đăng nhập - Trung tâm Tin học HCMUS',
 	});
 };
 
 // Lấy trang đăng ký
 exports.getSignupPage = (req, res) => {
 	return res.render('signup.pug', {
-		title: 'Trung tâm Tin học HCMUS - Đăng ký',
+		title: 'Đăng ký - Trung tâm Tin học HCMUS',
 	});
 };
 
