@@ -30,39 +30,42 @@ block content
     //- opening schedule
     .container
       h1.us-title.my-4 Lịch khai giảng các khoá học
-      .card.course
-        .course-header.card-header.flex-center-between(data-toggle='collapse' data-target='#collapse_1' aria-expanded='true' aria-controls='collapse_1')
-          h2.course-title chuyên viên thiết kế website
-          i.course-icon.fal.fa-chevron-circle-down
-        #collapse_1.collapse.hide
-          .card-body.course-content
-            h3.sub-title [New] chuyên viên thiết kế website ~ #[span 12 tháng]
-            b Học phí trọn khoá: #[strike 23.500.000 VNĐ] #[br]
-            strong Ưu đãi học phí chỉ còn 18.000.000Đ #[b khi đăng ký online và hoàn tất học phí trước ] 
-            | #[strong ngày 18/6/2021]
-            p.course-desc  Dành cho người mới bắt đầu, Khóa 267 (KG 21/06/2021) sẽ học trực tuyến với giảng viên 100% đến khi có thông báo mới
-            table.table.table-striped.table-bordered.my-4
-              thead
-                tr.table-primary
-                  th(scope='col') #[b Lớp]
-                  th(scope='col') #[b Thời gian học]
-                  th(scope='col') #[b Ngày khai giảng]
-                  th(scope='col') #[b Địa điểm học]
-                  th(scope='col') #[b Đã đăng ký]
-                  th(scope='col') 
-              tbody
-                tr
-                  td DVLQ_102
-                  td Thứ 2 - 4 - 6 (8h - 10H)
-                  td 21/6/2021
-                  td Online
-                  td 25
-                  td.text-center
-                    a(href="#")
-                      button.btn.btn-primary  Đăng ký
-                
-           
-
+      if courseList && courseList.length > 0
+        - for (let i = 0; i < courseList.length; ++i)
+          .card.course
+            .course-header.card-header.flex-center-between(data-toggle='collapse' data-target=`#collapse_${i}` aria-expanded='true' aria-controls=`collapse_${i}`)
+              h2.course-title= courseList[i].TEN_KH
+              i.course-icon.fal.fa-chevron-circle-down
+            .collapse.hide(id=`collapse_${i}`)
+              .card-body.course-content
+                - const time = Math.ceil((new Date(courseList[i].TG_KET_THUC) - new Date(courseList[i].TG_BAT_DAU)) / 2_592_000_000);
+                h3.sub-title [New] #{courseList[i].TEN_KH} ~ #[span #{time} tháng]
+                b Học phí trọn khoá: #[strike #{formatPrice(courseList[i].HOC_PHI * 1.08)}] #[br]
+                strong Ưu đãi học phí chỉ còn #{formatPrice(courseList[i].HOC_PHI)} #[b khi đăng ký online và hoàn tất học phí trước ] 
+                | #[strong ngày #{formatDate(courseList[i].NGAY_KHAI_GIANG)}]
+                p.course-desc  Dành cho người mới bắt đầu, Khóa 267 #{courseList[i].NGAY_KHAI_GIANG} sẽ học trực tuyến với giảng viên 100% đến khi có thông báo mới
+                table.table.table-striped.table-bordered.my-4
+                  thead
+                    tr.table-primary
+                      th(scope='col') #[b Lớp]
+                      th(scope='col') #[b Thời gian học]
+                      th(scope='col') #[b Ngày khai giảng]
+                      th(scope='col') #[b Địa điểm học]
+                      th(scope='col') #[b Đã đăng ký]
+                      th(scope='col') 
+                  tbody
+                  - const classList = courseList[i].DS_LOP_HOC;
+                  - for(let i = 0; i < classList.length; ++i)
+                      tr
+                        td= classList[i].MA_LH
+                        td= classList[i].THOI_GIAN_HOC
+                        td= formatDate(classList[i].NGAY_KG_LH)
+                        td= convertStudyPlace(classList[i].DIA_DIEM_HOC)
+                        td= classList[i].SL_DA_DANG_KY
+                        td.text-center
+                          a(href=`/${classList[i].MA_LH}`)
+                            button.btn.btn-primary  Đăng ký
+                  
 block script 
   script(src="/scripts/header.js") 
   script(src="/scripts/opening-schedule.js") 

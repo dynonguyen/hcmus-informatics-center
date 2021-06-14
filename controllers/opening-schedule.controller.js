@@ -1,11 +1,18 @@
+const { formatDate, formatPrice, convertStudyPlace } = require('../helper');
 const { getAllOpenSchedule } = require('../services/course.service');
 
-exports.getOpeningSchedulePage = (req, res) => {
+exports.getOpeningSchedulePage = async (req, res) => {
 	try {
-		await getAllOpenSchedule();
+		const courseList = await getAllOpenSchedule();
 
 		res.render('opening-schedule.pug', {
 			title: 'Lịch khai giảng - Trung tâm tin học HCMUS',
+			courseList: courseList || [],
+			formatDate,
+			formatPrice,
+			convertStudyPlace,
 		});
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };

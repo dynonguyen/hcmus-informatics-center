@@ -3,7 +3,7 @@
 const navHeight = 56;
 const MENU = [
 	{
-		to: '#',
+		to: '/opening-schedule',
 		title: 'Lịch khai giảng',
 		subMenu: [
 			{
