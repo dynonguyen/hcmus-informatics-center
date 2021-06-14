@@ -157,7 +157,6 @@ $(document).ready(function () {
 	$('#mapSelect').change(function () {
 		const baseVal = $(this).val() || 'cs1';
 		const address = $(this).children('option:selected')[0].textContent;
-		console.log(address);
 
 		const mapGoogleSrc =
 			baseVal === 'cs1'

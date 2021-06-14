@@ -66,6 +66,7 @@ GO
 
 -- lay tat ca lich khai giang
 CREATE PROCEDURE SP_GET_ALL_OPEN_SCHEDULE
+@type SMALLINT = -1 -- Lay tat ca neu type = -1
 AS
 BEGIN
    SELECT
@@ -83,8 +84,7 @@ BEGIN
   LH.THOI_GIAN_HOC
 FROM dbo.KHOA_HOC KH,
      dbo.LOP_HOC LH
-WHERE KH.MA_KH = LH.MA_KH AND KH.TG_BAT_DAU >= GETDATE();
+WHERE KH.MA_KH = LH.MA_KH AND KH.TG_BAT_DAU >= GETDATE() AND (@type = -1 OR KH.NHOM_KH = @type)
 END;
 GO
 
-EXEC dbo.SP_GET_ALL_OPEN_SCHEDULE;

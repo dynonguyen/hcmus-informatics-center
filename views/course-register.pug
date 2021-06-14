@@ -1,0 +1,11 @@
+extends ./template/general.pug
+block style
+  link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+
+block content
+  .us-wrapper
+    include ./mixin/header.pug
+    +header
+
+block script 
+  script(src="/scripts/header.js") 

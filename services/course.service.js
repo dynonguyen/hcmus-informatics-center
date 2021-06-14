@@ -1,10 +1,10 @@
 const sql = require('mssql');
 const sqlConfig = require('../config/sql.config');
 
-exports.getAllOpenSchedule = async () => {
+exports.getAllOpenSchedule = async (type = -1) => {
 	try {
 		const pool = await sql.connect(sqlConfig);
-		const queryStr = 'EXEC dbo.SP_GET_ALL_OPEN_SCHEDULE';
+		const queryStr = `EXEC dbo.SP_GET_ALL_OPEN_SCHEDULE @type = ${type}`;
 
 		const result = await pool.request().query(queryStr);
 		pool.close();

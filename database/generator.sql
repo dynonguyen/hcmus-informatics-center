@@ -353,3 +353,23 @@ VALUES
   2          -- DIA_DIEM_HOC - smallint
   );
   GO
+
+INSERT INTO dbo.LOP_HOC (
+  MA_LH,
+  MA_KH,
+  THOI_GIAN_HOC,
+  SL_TOI_DA,
+  SL_DA_DANG_KY,
+  NGAY_KHAI_GIANG,
+  DIA_DIEM_HOC
+)
+VALUES
+( 'LH-004',        -- MA_LH - varchar(10)
+  'KH-001',        -- MA_KH - varchar(10)
+  '200',        -- THOI_GIAN_HOC - varchar(10)
+  45,         -- SL_TOI_DA - int
+  14,         -- SL_DA_DANG_KY - int
+'2021-07-16', -- NGAY_KHAI_GIANG - date
+  1          -- DIA_DIEM_HOC - smallint
+  );
+  GO

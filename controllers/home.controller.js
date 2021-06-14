@@ -3,7 +3,6 @@ const { getTeacherList } = require('../services/home.service');
 // URL: /
 exports.getHome = async (req, res, next) => {
 	try {
-		console.log(req.locals);
 		const teacherList = await getTeacherList();
 		const studentFeelList = [
 			{

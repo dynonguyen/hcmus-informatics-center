@@ -31,7 +31,6 @@ exports.createAccount = async (email = '', password = '') => {
 
 		const result = await pool.request().query(queryStr);
 		pool.close();
-		console.log(result);
 		if (result.rowsAffected[0] === 1) return username;
 		return '';
 	} catch (error) {

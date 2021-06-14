@@ -7,52 +7,52 @@ const MENU = [
 		title: 'Lịch khai giảng',
 		subMenu: [
 			{
-				to: '#',
+				to: '/opening-schedule?type=0',
 				title: 'Tin học văn phòng',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=1',
 				title: 'Chứng chỉ quốc tế MOS',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=2',
 				title: 'Lập trình & CSDL',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=3',
 				title: 'Internet Marketing',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=4',
 				title: 'Data Science & Machine Learning',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=5',
 				title: 'Lập trình di động',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=6',
 				title: 'Kiểm thử phần mềm',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=7',
 				title: 'Mạng máy tính',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=8',
 				title: 'Lập trình Website',
 				iconClass: 'fas fa-calendar-alt',
 			},
 			{
-				to: '#',
+				to: '/opening-schedule?type=9',
 				title: 'Thiết kế đồ hoạ',
 				iconClass: 'fas fa-calendar-alt',
 			},
