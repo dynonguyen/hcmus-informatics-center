@@ -60,3 +60,27 @@
     font-size: 1.6rem;
   }
 }
+
+#paymentModal .modal-content {
+  th {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  td {
+    font-size: 1.4rem;
+  }
+
+  .fee {
+    font-weight: bold;
+    color: var(--grey);
+  }
+
+  .amount {
+    color: var(--accent-color);
+  }
+
+  .close span {
+    font-size: 2.8rem;
+  }
+}

@@ -51,4 +51,22 @@
   font-size: 1.6rem;
 }
 
+#paymentModal .modal-content th {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+#paymentModal .modal-content td {
+  font-size: 1.4rem;
+}
+#paymentModal .modal-content .fee {
+  font-weight: bold;
+  color: var(--grey);
+}
+#paymentModal .modal-content .amount {
+  color: var(--accent-color);
+}
+#paymentModal .modal-content .close span {
+  font-size: 2.8rem;
+}
+
 /*# sourceMappingURL=register-course.css.map */
