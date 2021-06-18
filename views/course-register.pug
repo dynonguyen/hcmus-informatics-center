@@ -1,11 +1,53 @@
 extends ./template/general.pug
 block style
   link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+  link(rel="stylesheet" type="text/css" href="/styles/css/register-course.css" )
 
 block content
-  .us-wrapper
+  .us-wrapper.h-100
     include ./mixin/header.pug
     +header
+
+    .container
+      .register-course
+        h1.register-course-title Thông tin khoá học
+        table.table.table-striped.table-bordered.my-4
+          thead
+            tr.table-primary
+              th(scope='col') Lớp
+              th(scope='col') Thời gian học
+              th(scope='col') Học phí
+              th(scope='col') Ngày khai giảng
+              th(scope='col') Địa điểm học
+              th(scope='col') Đã đăng ký
+          tbody
+              tr
+                td= classInfo.MA_LH
+                td= formatDate(classInfo.THOI_GIAN_HOC)
+                td= formatPrice(classInfo.HOC_PHI)
+                td= formatDate(classInfo.NGAY_KHAI_GIANG)
+                td= convertStudyPlace(classInfo.DIA_DIEM_HOC)
+                td= classInfo.SL_DA_DANG_KY
+        h1.register-course-title.mt-5 Thông tin đăng ký
+        p.register-course-sub-title.mb-4 Vui lòng xem kỹ thông tin trước khi đăng ký. Nếu có sai sót vui lòng cập nhật thông tin tài khoản #[a.us-form-link(href="/account/setting") Tại đây]
+        .row.register-course-info
+          .col.col-12.col-md-6.col-lg-4
+            h2.info-label Họ tên 
+            p.info-value= userInfo.HO_TEN
+          .col.col-12.col-md-6.col-lg-4
+            h2.info-label Email
+            p.info-value= userInfo.EMAIL
+          .col.col-12.col-md-6.col-lg-4
+            h2.info-label Số điện thoại
+            p.info-value= userInfo.SDT
+        
+        .us-break
+
+        h2.fee Học phí: #[span.amount= formatPrice(classInfo.HOC_PHI)]
+        p.register-course-sub-title (*) Bạn có thể đăng ký và đóng trực tiếp tại các cơ sở của Trung tâm. Hoặc thanh toán bằng hình thức online dưới đây.
+
+        .register-btn-group.w-100.d-flex.justify-content-end
+          .us-btn.us-btn-accent.payment-btn Thanh toán
 
 block script 
   script(src="/scripts/header.js") 

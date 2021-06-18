@@ -12,6 +12,7 @@ const {
 	getUserId,
 } = require('./middlewares/auth.middleware');
 const openingScheduleRoute = require('./routes/opening-schedule');
+const registerCourseRoute = require('./routes/register-course.route');
 
 // set port
 const PORT = process.env.PORT || 8888;
@@ -35,6 +36,7 @@ app.use(cookieParser(process.env.SIGNED_COOKIE || 'signed_cookie'));
 app.use('/', homeRoute);
 app.use('/account', accountRoute);
 app.use('/opening-schedule', getUserId, openingScheduleRoute);
+app.use('/register-course', getUserId, registerCourseRoute);
 
 // 404 Not found redirect
 app.use(function (req, res, next) {

@@ -1,0 +1,62 @@
+.register-course {
+  margin: 3.6rem 0;
+  padding: 2.4rem;
+  box-shadow: 0 2px 16px 2px rgba(#000, 0.15);
+  border-radius: 8px;
+
+  &-title {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+
+  &-sub-title {
+    font-size: 1.5rem;
+    color: var(--label-color);
+    font-weight: 500;
+  }
+
+  th {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  td {
+    font-size: 1.4rem;
+  }
+
+  &-info > .col {
+    margin-bottom: 1.2rem;
+  }
+
+  .info-label {
+    font-size: 1.8rem;
+    color: var(--label-color);
+    margin-right: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .info-value {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  .fee {
+    font-weight: bold;
+    color: var(--grey);
+  }
+
+  .amount {
+    color: var(--accent-color);
+  }
+
+  .payment-btn {
+    text-align: center;
+    width: 24rem;
+    height: 4.2rem;
+    line-height: 3.6rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+}
