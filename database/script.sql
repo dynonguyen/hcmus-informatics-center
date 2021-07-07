@@ -101,3 +101,85 @@ GO
 
 EXEC dbo.SP_GET_INFO_CLASS @courseId = 'LH-001' -- varchar(10)
 SELECT ND.HO_TEN, TH.EMAIL, ND.SDT FROM dbo.NGUOI_DUNG ND JOIN dbo.TAI_KHOAN TH ON TH.USERNAME = ND.MA_ND;
+
+
+-- STAFF
+SELECT BKT.ID_BAI_KT,BKT.MA_PT AS MA_PHONG_THI, BKT.MA_HV AS MA_HOC_VIEN, BKT.DIEM, BKT.LOAI_BT 
+FROM dbo.BAI_KIEM_TRA BKT;
+GO
+
+---Xem cac bai kiem tra cua mot hoc vien 
+CREATE PROCEDURE SP_GET_ALL_SCORE_TEST_HV
+@mahv varchar(20)
+AS
+BEGIN
+SELECT BKT.ID_BAI_KT,BKT.MA_PT AS MA_PHONG_THI, BKT.MA_HV AS MA_HOC_VIEN, BKT.DIEM, BKT.LOAI_BT 
+FROM dbo.BAI_KIEM_TRA BKT
+WHERE BKT.MA_HV = @mahv
+END;
+GO
+
+---Xem danh sach DTB cua 1 mon hoc 
+CREATE PROCEDURE SP_GET_ALL_SCORE_SUBJECT
+@mamh varchar(10)
+AS
+BEGIN 
+SELECT * 
+FROM dbo.HOC_VIEN_HOC_MH HVMH
+WHERE HVMH.MA_MH = @mamh;
+END;
+GO
+
+---Xem danh sach DTB cua 1 hoc vien o 1 mon hoc 
+CREATE PROCEDURE SP_GET_ALL_SCORE_SUBJECT_HV
+@mamh varchar(10), @mahv varchar(20)
+AS
+BEGIN 
+SELECT * 
+FROM dbo.HOC_VIEN_HOC_MH HVMH
+WHERE HVMH.MA_MH = @mamh AND HVMH.MA_HV = @mahv;
+END;
+GO
+
+--Cap nhat diem thi o 1 bai kiem tra 
+CREATE PROCEDURE SP_UPDATE_SCORE_TEST
+@mabt int, @diem float
+AS
+BEGIN 
+UPDATE dbo.BAI_KIEM_TRA
+SET DIEM = @diem
+WHERE ID_BAI_KT = @mabt;
+END;
+GO
+
+--Danh sach tong hop hoc vien mon hoc va diem tuong ung
+SELECT HVMH.MA_HV, HO_TEN, HVMH.MA_MH, HVMH.DIEM_TB
+FROM dbo.HOC_VIEN_HOC_MH HVMH, dbo.NGUOI_DUNG
+WHERE HVMH.MA_HV = MA_ND
+GO
+
+--To chuc thi
+SELECT * FROM dbo.PHONG_THI
+GO
+CREATE PROCEDURE SP_CREATE_EXAM_ROOM
+	@ma_pt VARCHAR(10),
+	@ma_mh VARCHAR(10),
+	@ma_phong VARCHAR(10),
+	@tg_thi DATETIME
+AS 
+BEGIN
+	INSERT INTO dbo.PHONG_THI
+	(
+	    MA_PT,
+	    MA_MH,
+	    MA_PHONG,
+	    THOI_GIAN_THI
+	)
+	VALUES
+	(   @ma_pt,     -- MA_PT - varchar(10)
+	    @ma_mh,     -- MA_PHONG - varchar(10)
+	    @ma_phong,     -- MA_MH - varchar(10)
+	    @tg_thi -- THOI_GIAN_THI - datetime
+	    )
+END
+GO

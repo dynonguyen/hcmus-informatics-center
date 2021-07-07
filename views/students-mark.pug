@@ -1,0 +1,31 @@
+extends ./template/general.pug
+block style
+  link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+block content
+  //- .w-100vw.h-100vh.d-flex.flex-column
+  //-   include ./mixin/header.pug
+  //-   +header
+
+  .container
+      h1.us-title.my-4 Danh sách điểm của các học viên
+      if studentsMarkList && studentsMarkList.length > 0
+        - for (let i = 0; i < studentsMarkList.length; ++i)
+          table.table.table-striped.table-bordered.my-4
+            thead
+              tr.table-primary
+                th(scope='col') #[b Mã học viên]
+                th(scope='col') #[b Họ tên]
+                th(scope='col') #[b Mã môn học]
+                th(scope='col') #[b Điểm trung bình]
+            tbody                 
+              tr                       
+                td= studentsMarkList[i].MA_HV
+                td= studentsMarkList[i].HO_TEN
+                td= studentsMarkList[i].MA_MH
+                td= studentsMarkList[i].DIEM_TB
+                        
+      else 
+        h3.us-sub-title.my-4 Hiện tại không có bảng điểm        
+block script 
+  script(src="/scripts/header.js") 
+

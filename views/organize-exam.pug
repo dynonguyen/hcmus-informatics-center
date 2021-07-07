@@ -1,0 +1,54 @@
+extends ./template/general.pug
+block style
+  link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+block content
+  .container   
+    h1.us-title.my-4 Tổ chức thi
+    //- to chuc thi
+    .flex-grow-1.flex-center
+      form#organizeExamForm.us-form.flex-center--col(method="POST" action="/staff/organize-exam")
+        h1.us-form-title Tổ chức thi
+        img(src="/assets/icons/staff-programs/exam.png")
+        #message.w-100
+          if message && message !== ''
+            p.alert.alert-danger.us-form-field(style="font-size:1.4rem") #{message}
+        input.us-field.us-form-field.medium(name="ma_pt" placeholder="Mã phòng thi" maxLength="100" autofocus type="text")
+        input.us-field.us-form-field.medium(name="ma_mh" placeholder="Mã môn học" maxLength="100" type="text")
+        input.us-field.us-form-field.medium(name="ma_phong" placeholder="Mã phòng học (của môn học đó)" maxLength="10" type="text")
+        input.us-field.us-form-field.medium(name="thoi_gian_thi" placeholder="Thời gian thi" type="datetime-local")
+        button#submitBtn.us-btn.us-btn-primary.medium.us-form-field(type="submit") Tổ chức
+        p.us-form-field.us-form-text.text-center Xem danh sách môn học và phòng học để nhập tương ứng
+
+    //- Xem danh sach phong thi
+    button(onclick='funcShowExamRooms()') Xem danh sách phòng thi
+    div#examRoomsTable
+      if examRoomsList && examRoomsList.length > 0
+        - for (let i = 0; i < examRoomsList.length; ++i)
+          table.table.table-striped.table-bordered.my-4
+            thead
+              tr.table-primary
+                th(scope='col') #[b Mã phòng thi]
+                th(scope='col') #[b Mã môn học]
+                th(scope='col') #[b Mã phòng học]
+                th(scope='col') #[b Thời gian thi]
+            tbody                 
+              tr                       
+                td= examRoomsList[i].MA_PT
+                td= examRoomsList[i].MA_MH
+                td= examRoomsList[i].MA_PHONG
+                td= examRoomsList[i].THOI_GIAN_THI                         
+      else 
+        h3.us-sub-title.my-4 Hiện tại không có bảng điểm 
+block script 
+  script(src="/scripts/header.js") 
+
+  script.
+    function funcShowExamRooms() {  
+      let x = document.getElementById("examRoomsTable");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+

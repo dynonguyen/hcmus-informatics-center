@@ -1,0 +1,16 @@
+.row.justify-content-between h3 {
+  color: #0080cc;
+}
+
+.col-3 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5%;
+  /* background-color: aqua; */
+  border: solid 1px;
+}
+
+.col-3:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}

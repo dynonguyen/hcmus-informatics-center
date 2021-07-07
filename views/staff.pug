@@ -1,0 +1,43 @@
+extends ./template/general.pug
+block style
+  link(rel="stylesheet" type="text/css" href="/styles/css/header.css" )
+  link(rel="stylesheet" type="text/css" href="/styles/css/staff.css" )
+block content
+  .w-100vw.h-100vh.d-flex.flex-column
+    include ./mixin/header.pug
+    +header
+
+    .flex-grow-1
+      .container
+        .row.justify-content-between
+          .col-3
+            a(href="/staff/organize-exam")
+              img(src="/assets/icons/staff-programs/exam.png")
+              h3 Tổ chức thi
+          .col-3
+            a(href="#")
+              img(src="/assets/icons/staff-programs/check-mark.png")
+              h3 Chấm thi
+          .col-3
+            a(href="#")
+              img(src="/assets/icons/staff-programs/check-mark-again.png")
+              h3 Chấm phúc khảo
+    .flex-grow-1
+      .container
+        .row.justify-content-between
+          .col-3
+            a(href="/staff/students-mark")
+              img(src="/assets/icons/staff-programs/list-mark.png")
+              h3 Bảng điểm các học viên
+          .col-3
+            a(href="#")
+              img(src="/assets/icons/staff-programs/upload-mark.png")
+              h3 Cập nhật điểm
+          .col-3
+            a(href="#")
+              img(src="/assets/icons/staff-programs/certificate.png")
+              h3 Cấp văn bằng
+          
+block script 
+  script(src="/scripts/header.js") 
+
