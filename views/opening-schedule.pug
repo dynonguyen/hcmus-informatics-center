@@ -51,6 +51,7 @@ block content
                       th(scope='col') #[b Thời gian học]
                       th(scope='col') #[b Ngày khai giảng]
                       th(scope='col') #[b Địa điểm học]
+                      th(scope='col') #[b SL tối đa]
                       th(scope='col') #[b Đã đăng ký]
                       th(scope='col') 
                   tbody
@@ -61,10 +62,15 @@ block content
                         td= classList[i].THOI_GIAN_HOC
                         td= formatDate(classList[i].NGAY_KG_LH)
                         td= convertStudyPlace(classList[i].DIA_DIEM_HOC)
+                        td= classList[i].SL_TOI_DA
                         td= classList[i].SL_DA_DANG_KY
-                        td.text-center
-                          a(href=`/register-course/${classList[i].MA_LH}`)
-                            button.btn.btn-primary  Đăng ký
+                        if classList[i].SL_DA_DANG_KY >= classList[i].SL_TOI_DA
+                          td.text-center
+                            button.btn Đã đủ
+                        else
+                          td.text-center
+                            a(href=`/register-course/${classList[i].MA_LH}`)
+                              button.btn.btn-primary  Đăng ký
       else 
         h3.us-sub-title.my-4 Hiện tại không có khoá học nào        
 block script 

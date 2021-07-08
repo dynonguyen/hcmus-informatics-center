@@ -27,6 +27,7 @@ exports.getAllOpenSchedule = async (type = -1) => {
 					SL_DA_DANG_KY,
 					THOI_GIAN_HOC,
 					NGAY_KG_LH,
+					SL_TOI_DA,
 				} = item;
 
 				const foundIndex = courseList.findIndex(
@@ -40,6 +41,7 @@ exports.getAllOpenSchedule = async (type = -1) => {
 					SL_DA_DANG_KY,
 					THOI_GIAN_HOC,
 					NGAY_KG_LH,
+					SL_TOI_DA,
 				};
 
 				if (foundIndex === -1) {
