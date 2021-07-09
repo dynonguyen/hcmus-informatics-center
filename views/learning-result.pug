@@ -10,7 +10,7 @@ block content
     +student-nav
 
     .container
-      table.table.table-hover.table-striped.table-bordered.result-table
+      table#resultTable.table.table-hover.table-striped.table-bordered.result-table
         thead.thead-dark
           tr
             th(scope='col') STT
@@ -19,7 +19,9 @@ block content
             th(scope='col') Tên môn học
             th(scope='col') Phòng học
             th(scope='col') Trạng thái
-            th(scope='col') Điểm TB
+            th(scope='col') 
+              span.mr-4 Điểm TB
+              i#avgSortBtn.fas.fa-sort.cursor-pointer
         each value, index in list
           tbody
             tr
@@ -30,4 +32,6 @@ block content
               td= value.TEN_PHONG
               td= value.TINH_TRANG === 0 ? 'Chưa thi' :  value.TINH_TRANG === 1 ? 'Đang thi' : 'Đã thi'
               td= value.DIEM_TB.toFixed(2)
-         
+
+block script 
+  script(src="/scripts/learning-result.js")

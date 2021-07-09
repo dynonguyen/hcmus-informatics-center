@@ -56,6 +56,10 @@ ul.info {
 }
 .result-table th {
   text-transform: capitalize;
+  cursor: pointer;
+}
+.result-table td {
+  max-width: 250px;
 }
 
 /*# sourceMappingURL=student-page.css.map */

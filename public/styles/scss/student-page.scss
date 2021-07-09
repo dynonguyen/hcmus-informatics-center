@@ -61,5 +61,10 @@ ul.info {
 
   th {
     text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  td {
+    max-width: 250px;
   }
 }
