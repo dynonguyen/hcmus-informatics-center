@@ -1,0 +1,15 @@
+#studentNav {
+  padding: 1.2rem 1.6rem;
+
+  & > * {
+    font-size: 1.6rem;
+  }
+
+  .nav-item {
+    margin: 0 1.6rem;
+
+    &.active .nav-link {
+      color: var(--secondary-color);
+    }
+  }
+}

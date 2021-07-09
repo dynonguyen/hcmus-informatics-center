@@ -1,0 +1,8 @@
+extend ./template/general.pug
+
+block style 
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-nav.css")
+
+block content 
+  include ./mixin/student-nav.pug
+  +student-nav

@@ -185,3 +185,5 @@ BEGIN
 	    )
 END
 GO
+
+-- lay thong tin chi tiet cua mot hoc vien
