@@ -28,3 +28,17 @@ exports.getLearningResult = async (userId) => {
 		throw error;
 	}
 };
+
+exports.getStudentTimetable = async (userId) => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `EXEC dbo.SP_GET_STUDENT_TIMETABLE @studentId = '${userId}'`;
+
+		const result = await pool.request().query(queryStr);
+		pool.close();
+
+		return result?.recordset;
+	} catch (error) {
+		throw error;
+	}
+};

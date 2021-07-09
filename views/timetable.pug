@@ -1,0 +1,38 @@
+extend ./template/general.pug
+
+block style 
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-nav.css")
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-page.css")
+
+block content 
+  .student-wrapper.d-flex
+    include ./mixin/student-nav.pug
+    +student-nav
+
+    .container
+      table.table.table-hover.table-striped.table-bordered.result-table
+        thead.thead-dark
+          tr
+            th(scope='col') STT
+            th(scope='col') Mã Môn Học
+            th(scope='col') Mã lớp học
+            th(scope='col') Tên môn học
+            th(scope='col') Phòng học
+            th(scope='col') Ngày bắt đầu
+            th(scope='col') Lịch học
+            th(scope='col') Thời gian học
+          each value, index in list
+            tbody
+              tr
+                th= index+1
+                td= value.MA_MH
+                td= value.MA_LH
+                td= value.TEN_MH
+                td= value.TEN_PHONG
+                td= formatDate(value.NGAY_KHAI_GIANG)
+                td= value.BUOI_HOC
+                td= value.THOI_GIAN_HOC 
+              
+
+block script 
+  script(src="/scripts/learning-result.js")

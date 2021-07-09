@@ -35,7 +35,7 @@ block content
           .card.course
             .course-header.card-header.flex-center-between(data-toggle='collapse' data-target=`#collapse_${i}` aria-expanded='true' aria-controls=`collapse_${i}`)
               h2.course-title= courseList[i].TEN_KH
-              i.course-icon.fal.fa-chevron-circle-down
+              i.course-icon.fas.fa-chevron-circle-down
             .collapse.hide(id=`collapse_${i}`)
               .card-body.course-content
                 - const time = Math.ceil((new Date(courseList[i].TG_KET_THUC) - new Date(courseList[i].TG_BAT_DAU)) / 2_592_000_000);

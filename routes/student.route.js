@@ -8,4 +8,6 @@ studentRoute.get(
 	studentController.getStuLearningResult,
 );
 
+studentRoute.get('/:id/timetable', studentController.getTimeTable);
+
 module.exports = studentRoute;

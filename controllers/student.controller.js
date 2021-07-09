@@ -1,6 +1,8 @@
+const { formatDate } = require('../helper');
 const {
 	getStudentInfo: getStudentInfoService,
 	getLearningResult,
+	getStudentTimetable,
 } = require('../services/student.service');
 
 exports.getStudentInfo = async (req, res, next) => {
@@ -45,6 +47,26 @@ exports.getStuLearningResult = async (req, res, next) => {
 		});
 	} catch (error) {
 		console.error('GET LEARNING RESULT ERROR: ', error);
+		return res.status(503).render('404.pug');
+	}
+};
+
+exports.getTimeTable = async (req, res, next) => {
+	try {
+		const { MA_ND } = res.locals?.user;
+		if (!MA_ND) {
+			return res.render('404.pug');
+		}
+
+		const list = await getStudentTimetable(MA_ND);
+
+		return res.render('timetable.pug', {
+			key: 'timetable',
+			list,
+			formatDate,
+		});
+	} catch (error) {
+		console.error('GET TIMETABLE ERROR: ', error);
 		return res.status(503).render('404.pug');
 	}
 };
