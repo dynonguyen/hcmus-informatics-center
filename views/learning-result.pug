@@ -1,0 +1,33 @@
+extend ./template/general.pug
+
+block style 
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-nav.css")
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-page.css")
+
+block content 
+  .student-wrapper.d-flex
+    include ./mixin/student-nav.pug
+    +student-nav
+
+    .container
+      table.table.table-hover.table-striped.table-bordered.result-table
+        thead.thead-dark
+          tr
+            th(scope='col') STT
+            th(scope='col') Mã Môn Học
+            th(scope='col') Mã lớp học
+            th(scope='col') Tên môn học
+            th(scope='col') Phòng học
+            th(scope='col') Trạng thái
+            th(scope='col') Điểm TB
+        each value, index in list
+          tbody
+            tr
+              td= index+1
+              td= value.MA_MH
+              td= value.MA_LH
+              td= value.TEN_MH
+              td= value.TEN_PHONG
+              td= value.TINH_TRANG === 0 ? 'Chưa thi' :  value.TINH_TRANG === 1 ? 'Đang thi' : 'Đã thi'
+              td= value.DIEM_TB.toFixed(2)
+         

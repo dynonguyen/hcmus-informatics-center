@@ -16,8 +16,19 @@ ul.info {
   font-size: 2.4rem;
   color: var(--primary-color);
   font-weight: bold;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.4rem;
   text-transform: uppercase;
+}
+
+.info-avt {
+  width: 100%;
+  text-align: center;
+  margin: 0.8rem auto;
+}
+.info-avt img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .info-item {
@@ -33,6 +44,18 @@ ul.info {
 }
 .info-item .value {
   color: var(--text-color);
+}
+
+.result-table {
+  margin: 3.6rem auto;
+  box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.12);
+}
+.result-table * {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.result-table th {
+  text-transform: capitalize;
 }
 
 /*# sourceMappingURL=student-page.css.map */

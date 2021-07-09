@@ -1,5 +1,6 @@
 #studentNav {
   padding: 1.2rem 1.6rem;
+  background-color: var(--primary-color) !important;
 
   & > * {
     font-size: 1.6rem;
@@ -9,7 +10,18 @@
     margin: 0 1.6rem;
 
     &.active .nav-link {
-      color: var(--secondary-color);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+
+  .nav-link {
+    color: var(--white);
+    transition: all 0.25s;
+
+    &:hover,
+    &:active {
+      color: var(--light-color);
     }
   }
 }

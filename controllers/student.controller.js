@@ -1,5 +1,6 @@
 const {
 	getStudentInfo: getStudentInfoService,
+	getLearningResult,
 } = require('../services/student.service');
 
 exports.getStudentInfo = async (req, res, next) => {
@@ -18,12 +19,32 @@ exports.getStudentInfo = async (req, res, next) => {
 		if (studentInfo) {
 			return res.render('student-info.pug', {
 				studentInfo,
+				key: 'info',
 			});
 		}
 
 		return res.render('404.pug');
 	} catch (error) {
 		console.error('GET STUDENT INFO ERROR: ', error);
-		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
+		return res.status(503).render('404.pug');
+	}
+};
+
+exports.getStuLearningResult = async (req, res, next) => {
+	try {
+		const { MA_ND } = res.locals?.user;
+		if (!MA_ND) {
+			return res.render('404.pug');
+		}
+
+		const list = await getLearningResult(MA_ND);
+
+		return res.render('learning-result.pug', {
+			key: 'result',
+			list,
+		});
+	} catch (error) {
+		console.error('GET LEARNING RESULT ERROR: ', error);
+		return res.status(503).render('404.pug');
 	}
 };

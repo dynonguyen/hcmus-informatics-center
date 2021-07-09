@@ -1,5 +1,6 @@
 #studentNav {
   padding: 1.2rem 1.6rem;
+  background-color: var(--primary-color) !important;
 }
 #studentNav > * {
   font-size: 1.6rem;
@@ -8,7 +9,15 @@
   margin: 0 1.6rem;
 }
 #studentNav .nav-item.active .nav-link {
-  color: var(--secondary-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+#studentNav .nav-link {
+  color: var(--white);
+  transition: all 0.25s;
+}
+#studentNav .nav-link:hover, #studentNav .nav-link:active {
+  color: var(--light-color);
 }
 
 /*# sourceMappingURL=student-nav.css.map */

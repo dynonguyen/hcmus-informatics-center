@@ -4,15 +4,20 @@ mixin student-nav
       span.navbar-toggler-icon
     #navbarText.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href=`#`)
+        li.nav-item
+          a.nav-link(href='/')
+            i.fa.fa-home
+        li.nav-item(class=`${key === 'info' ? 'active' : ''}`)
+          a.nav-link(href=`/user/${user.MA_ND}/`)
             | Thông tin cá nhân
             span.sr-only (current)
-        li.nav-item
+        li.nav-item(class=`${key === 'result' ? 'active' : ''}`)
           a.nav-link(href=`/user/${user.MA_ND}/learning-result`) Tra cứu kết quả học tập
-        li.nav-item
+        li.nav-item(class=`${key === 'timetable' ? 'active' : ''}`)
           a.nav-link(href=`/user/${user.MA_ND}/time-table`) Xem thời khoá biểu 
-        li.nav-item
+        li.nav-item(class=`${key === 'exam' ? 'active' : ''}`)
           a.nav-link(href=`/user/${user.MA_ND}/exam`) Làm bài thi - kiểm tra
+        li.nav-item(class=`${key === 're-exam' ? 'active' : ''}`)
+          a.nav-link(href=`/user/${user.MA_ND}/re-exam`) Đăng ký thi lại
      
 

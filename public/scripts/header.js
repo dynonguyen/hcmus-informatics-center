@@ -70,7 +70,7 @@ const MENU = [
 			{
 				to: '#',
 				title: 'Thiết kế đồ hoạ',
-				iconClass: 'fas fa-paint-brush-alt',
+				iconClass: 'fas fa-palette',
 			},
 			{
 				to: '#',
