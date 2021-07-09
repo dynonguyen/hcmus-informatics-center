@@ -187,3 +187,22 @@ END
 GO
 
 -- lay thong tin chi tiet cua mot hoc vien
+CREATE PROCEDURE SP_GET_STUDENT_INFO (@studentId VARCHAR(50))
+AS
+BEGIN
+  SELECT
+    ND.MA_ND,
+    TK.EMAIL,
+    ND.HO_TEN,
+    ND.TUOI,
+    ND.GIOI_TINH,
+    ND.DIA_CHI,
+    ND.SDT
+  FROM dbo.NGUOI_DUNG ND
+    JOIN dbo.TAI_KHOAN TK
+      ON TK.USERNAME = ND.MA_ND
+  WHERE MA_ND = @studentId
+        AND LOAI_NGUOI_DUNG = 1;
+END;
+
+EXEC dbo.SP_GET_STUDENT_INFO @studentId = 'AazMbCshQ7UF7klqXrum' -- varchar(50)

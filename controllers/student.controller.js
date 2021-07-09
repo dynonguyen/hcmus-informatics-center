@@ -1,3 +1,7 @@
+const {
+	getStudentInfo: getStudentInfoService,
+} = require('../services/student.service');
+
 exports.getStudentInfo = async (req, res, next) => {
 	try {
 		const { id } = req.params;
@@ -10,7 +14,14 @@ exports.getStudentInfo = async (req, res, next) => {
 			return res.render('404.pug');
 		}
 
-		res.render('student-info.pug');
+		const studentInfo = await getStudentInfoService(id);
+		if (studentInfo) {
+			return res.render('student-info.pug', {
+				studentInfo,
+			});
+		}
+
+		return res.render('404.pug');
 	} catch (error) {
 		console.error('GET STUDENT INFO ERROR: ', error);
 		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });

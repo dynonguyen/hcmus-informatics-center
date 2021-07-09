@@ -2,7 +2,37 @@ extend ./template/general.pug
 
 block style 
   link(rel="stylesheet" type="text/css" href="/styles/css/student-nav.css")
+  link(rel="stylesheet" type="text/css" href="/styles/css/student-page.css")
 
-block content 
-  include ./mixin/student-nav.pug
-  +student-nav
+block content
+  .student-wrapper.d-flex
+    include ./mixin/student-nav.pug
+    +student-nav
+    
+    .flex-grow-1.flex-center
+      ul.info 
+        h1.text-center.info-title Thông tin cá nhân
+        li.info-item 
+          span.label Email: 
+          span.value= studentInfo.EMAIL
+        li.info-item 
+          span.label Username: 
+          span.value= studentInfo.MA_ND
+        li.info-item 
+          span.label Họ tên: 
+          span.value= studentInfo.HO_TEN
+        li.info-item 
+          span.label Tuổi: 
+          span.value= studentInfo.TUOI
+        li.info-item 
+          span.label Giới tính 
+          span.value= studentInfo.GIOI_TINH ? 'Nữ' : 'Nam'
+        li.info-item 
+          span.label Số điện thoại:
+          span.value= studentInfo.SDT
+        li.info-item 
+          span.label Địa chỉ: 
+          span.value= studentInfo.DIA_CHI
+      
+
+

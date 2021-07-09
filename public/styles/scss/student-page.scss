@@ -1,0 +1,38 @@
+.student-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--light-color);
+}
+
+ul.info {
+  padding: 3.6rem 4.8rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+.info-title {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 3.2rem;
+  text-transform: uppercase;
+}
+
+.info-item {
+  margin: 1.2rem 0;
+  font-size: 1.8rem;
+
+  .label {
+    color: var(--label-color);
+    font-weight: bold;
+    margin-right: 1.2rem;
+    min-width: 15rem;
+    display: inline-block;
+  }
+
+  .value {
+    color: var(--text-color);
+  }
+}
