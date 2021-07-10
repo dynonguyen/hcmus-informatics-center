@@ -99,6 +99,23 @@ VALUES
   );
 GO
 
+INSERT INTO dbo.TAI_KHOAN (
+  USERNAME,
+  EMAIL,
+  MAT_KHAU,
+  NGAY_TAO,
+  SO_LAN_DANG_NHAP_SAI
+)
+VALUES
+( 'C2RgRaHnGO22gKINR2RS',        -- USERNAME - varchar(20)
+  'student@gmail.com',        -- EMAIL - varchar(100)
+  '33dfb791754a31fee15a8013e26ddbe3',        -- MAT_KHAU - varchar(50)
+  GETDATE(), -- NGAY_TAO - datetime
+  0          -- SO_LAN_DANG_NHAP_SAI - smallint
+  )
+
+GO
+
 -- THEM BANG NGUOI DUNG --
 -- GIAO VIEN
 INSERT INTO dbo.NGUOI_DUNG (
@@ -233,6 +250,29 @@ VALUES
   );
 GO
 
+INSERT INTO dbo.NGUOI_DUNG (
+  MA_ND,
+  HO_TEN,
+  TUOI,
+  GIOI_TINH,
+  DIA_CHI,
+  SDT,
+  AVATAR,
+  LOAI_NGUOI_DUNG
+)
+VALUES
+( 'C2RgRaHnGO22gKINR2RS',  -- MA_ND - varchar(20)
+  N'Nguyễn Lê Anh Tuấn', -- HO_TEN - nvarchar(50)
+  21,   -- TUOI - int
+  0,   -- GIOI_TINH - smallint
+  N'TX.Dĩ An, Tỉnh Bình Dương', -- DIA_CHI - nvarchar(150)
+  '0377757578',  -- SDT - char(11)
+  'https://res.cloudinary.com/tuan-cloudinary/image/upload/h_100,w_100,f_auto/v1625803301/avatar.png',  -- AVATAR - varchar(200)
+  1    -- LOAI_NGUOI_DUNG - smallint
+  )
+
+GO
+
 -- THEM KHOA HOC --
 INSERT INTO dbo.KHOA_HOC (
   MA_KH,
@@ -309,7 +349,7 @@ VALUES
   'KH-001',        -- MA_KH - varchar(10)
   '360',        -- THOI_GIAN_HOC - varchar(10)
   35,         -- SL_TOI_DA - int
-  15,         -- SL_DA_DANG_KY - int
+  0,         -- SL_DA_DANG_KY - int
 '2021-07-15', -- NGAY_KHAI_GIANG - date
   1          -- DIA_DIEM_HOC - smallint
   );
@@ -329,7 +369,7 @@ VALUES
   'KH-002',        -- MA_KH - varchar(10)
   '88',        -- THOI_GIAN_HOC - varchar(10)
   32,         -- SL_TOI_DA - int
-  28,         -- SL_DA_DANG_KY - int
+  0,         -- SL_DA_DANG_KY - int
 '2021-07-16', -- NGAY_KHAI_GIANG - date
   0          -- DIA_DIEM_HOC - smallint
   );
@@ -349,8 +389,157 @@ VALUES
   'KH-003',        -- MA_KH - varchar(10)
   '188',        -- THOI_GIAN_HOC - varchar(10)
   45,         -- SL_TOI_DA - int
-  34,         -- SL_DA_DANG_KY - int
+  0,         -- SL_DA_DANG_KY - int
 '2021-07-16', -- NGAY_KHAI_GIANG - date
   2          -- DIA_DIEM_HOC - smallint
   );
   GO
+
+INSERT INTO dbo.LOP_HOC (
+  MA_LH,
+  MA_KH,
+  THOI_GIAN_HOC,
+  SL_TOI_DA,
+  SL_DA_DANG_KY,
+  NGAY_KHAI_GIANG,
+  DIA_DIEM_HOC
+)
+VALUES
+( 'LH-004',        -- MA_LH - varchar(10)
+  'KH-001',        -- MA_KH - varchar(10)
+  '200',        -- THOI_GIAN_HOC - varchar(10)
+  45,         -- SL_TOI_DA - int
+  0,         -- SL_DA_DANG_KY - int
+'2021-07-16', -- NGAY_KHAI_GIANG - date
+  1          -- DIA_DIEM_HOC - smallint
+  );
+  GO
+
+-- THEM PHONG HOC --
+INSERT INTO dbo.PHONG_HOC (
+  MA_PHONG,
+  TEN_PHONG,
+  SL_HV_TOI_DA
+)
+VALUES
+( 'PH-001',  -- MA_PHONG - varchar(10)
+  N'E403', -- TEN_PHONG - nvarchar(20)
+  100    -- SL_HV_TOI_DA - int
+  )
+GO
+
+INSERT INTO dbo.PHONG_HOC (
+  MA_PHONG,
+  TEN_PHONG,
+  SL_HV_TOI_DA
+)
+VALUES
+( 'PH-002',  -- MA_PHONG - varchar(10)
+  N'E105', -- TEN_PHONG - nvarchar(20)
+  50    -- SL_HV_TOI_DA - int
+  )
+GO
+
+INSERT INTO dbo.PHONG_HOC (
+  MA_PHONG,
+  TEN_PHONG,
+  SL_HV_TOI_DA
+)
+VALUES
+( 'PH-003',  -- MA_PHONG - varchar(10)
+  N'F205', -- TEN_PHONG - nvarchar(20)
+  80    -- SL_HV_TOI_DA - int
+  )
+GO
+
+-- THEM MON HOC --
+INSERT INTO dbo.MON_HOC (
+  MA_MH,
+  MA_LH,
+  TEN_MH,
+  CT_MH,
+  MA_PHONG,
+  BUOI_HOC
+)
+VALUES
+( 'MH_001',  -- MA_MH - varchar(10)
+  'LH-001',  -- MA_LH - varchar(10)
+  N'Photoshop cơ bản', -- TEN_MH - nvarchar(100)
+  N'Học về các thao tác cơ bản trên Photoshop CC, đồ án cuối môn', -- CT_MH - nvarchar(200)
+  'PH-001',  -- MA_PHONG - varchar(10)
+  '13:00-15:30, T3, T5, T7'   -- BUOI_HOC - varchar(50)
+  )
+GO
+
+INSERT INTO dbo.MON_HOC (
+  MA_MH,
+  MA_LH,
+  TEN_MH,
+  CT_MH,
+  MA_PHONG,
+  BUOI_HOC
+)
+VALUES
+( 'MH-002',  -- MA_MH - varchar(10)
+  'LH-001',  -- MA_LH - varchar(10)
+  N'Lý thuyết về thiết kế cơ bản', -- TEN_MH - nvarchar(20)
+  N'Các khái niệm về UI/UX cơ bản', -- CT_MH - nvarchar(50)
+  'PH-002',  -- MA_PHONG - varchar(10)
+  '13:00-15:30, T2, T6'   -- BUOI_HOC - varchar(15)
+  )
+GO
+
+INSERT INTO dbo.MON_HOC (
+  MA_MH,
+  MA_LH,
+  TEN_MH,
+  CT_MH,
+  MA_PHONG,
+  BUOI_HOC
+)
+VALUES
+( 'MH-003',  -- MA_MH - varchar(10)
+  'LH-001',  -- MA_LH - varchar(10)
+  N'Kiến thức HTML, CSS cơ bản', -- TEN_MH - nvarchar(20)
+  N'Các khái niệm về HTML, CSS cơ bản', -- CT_MH - nvarchar(50)
+  'PH-001',  -- MA_PHONG - varchar(10)
+  '7:00-9:30, T2, T4, T6'   -- BUOI_HOC - varchar(15)
+  )
+GO
+
+INSERT INTO dbo.MON_HOC (
+  MA_MH,
+  MA_LH,
+  TEN_MH,
+  CT_MH,
+  MA_PHONG,
+  BUOI_HOC
+)
+VALUES
+( 'MH-004',  -- MA_MH - varchar(10)
+  'LH-002',  -- MA_LH - varchar(10)
+  N'Lập trình Android cơ bản', -- TEN_MH - nvarchar(20)
+  N'Các khái niệm về Mobile', -- CT_MH - nvarchar(50)
+  'PH-003',  -- MA_PHONG - varchar(10)
+  '7:00-9:30, T2, T4, T6'   -- BUOI_HOC - varchar(15)
+  )
+GO
+
+INSERT INTO dbo.MON_HOC (
+  MA_MH,
+  MA_LH,
+  TEN_MH,
+  CT_MH,
+  MA_PHONG,
+  BUOI_HOC
+)
+VALUES
+( 'MH-005',  -- MA_MH - varchar(10)
+  'LH-002',  -- MA_LH - varchar(10)
+  N'Lập trình Android nâng cao', -- TEN_MH - nvarchar(20)
+  N'Các khái niệm nâng cao về Mobile', -- CT_MH - nvarchar(50)
+  'PH-003',  -- MA_PHONG - varchar(10)
+  '15:00-17:30, T3, T5, T7'   -- BUOI_HOC - varchar(15)
+  )
+GO
+

@@ -22,12 +22,32 @@ exports.getClassInfo = async (courseId) => {
 
 exports.isExistStudentInClass = async (userId, classId) => {
 	try {
-		console.log(userId);
-		console.log(classId);
 		const pool = await sql.connect(sqlConfig);
-		const queryStr = `SELECT * FROM dbo.HV_LH WHERE MA_HV = '${userId}' AND MA_LH = '${classId}'`;
+		const queryStr = `SELECT 1 FROM dbo.HV_LH WHERE MA_HV = '${userId}' AND MA_LH = '${classId}'`;
 		const result = await pool.request().query(queryStr);
-		console.log(result);
+		const { rowsAffected } = result;
+
+		if (rowsAffected && rowsAffected[0] !== 0) {
+			return true;
+		}
+
+		return false;
+	} catch (error) {
+		throw error;
+	}
+};
+
+exports.registerCourse = async (studentId, classId) => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `EXEC dbo.SP_REGISTER_COURSE @studentId = '${studentId}', @classId = '${classId}'`;
+		const result = await pool.request().query(queryStr);
+
+		if (result.rowsAffected[0] !== 0) {
+			return true;
+		}
+
+		return false;
 	} catch (error) {
 		throw error;
 	}

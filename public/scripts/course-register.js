@@ -16,27 +16,27 @@ $(document).ready(function () {
 		})
 			.done(function (data, status) {
 				if (status === 'success' || data) {
-					const xml = `<div class="alert alert-success">${
-						data.message || 'Đăng ký thành công'
-					}</div>`;
-					$('#registerMessage').removeClass('d-none').html(xml);
-
 					setTimeout(() => {
+						const xml = `<div class="alert alert-success">${
+							data.message || 'Đăng ký thành công'
+						}</div>`;
+						$('#registerMessage').removeClass('d-none').html(xml);
+
 						window.location.href = `/user/${userId}/timetable`;
-					}, 2000);
+					}, 1500);
 				}
 			})
 			.fail(function (error) {
-				const xml = `<div class="alert alert-danger">${
-					error?.responseJSON?.message || 'Đăng ký thất bại, thử lại !'
-				}</div>`;
-				$('#registerMessage').removeClass('d-none').html(xml);
-				$('#paymentModal .us-btn').removeClass('disabled');
-				$('#loadIcon').addClass('d-none').removeClass('ani-spin');
-
 				setTimeout(() => {
+					const xml = `<div class="alert alert-danger">${
+						error?.responseJSON?.message || 'Đăng ký thất bại, thử lại !'
+					}</div>`;
+					$('#registerMessage').removeClass('d-none').html(xml);
+					$('#paymentModal .us-btn').removeClass('disabled');
+					$('#loadIcon').addClass('d-none').removeClass('ani-spin');
+
 					$('#registerMessage').addClass('d-none');
-				}, 3000);
+				}, 1500);
 			});
 	});
 });
