@@ -6,4 +6,6 @@ registerCourseRoute.get(
 	registerCourseController.getRegisterCoursePage,
 );
 
+registerCourseRoute.post('/', registerCourseController.postRegisterCourse);
+
 module.exports = registerCourseRoute;

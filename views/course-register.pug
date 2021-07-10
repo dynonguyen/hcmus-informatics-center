@@ -63,11 +63,15 @@ block content
             button.close(type='button' data-dismiss='modal' aria-label='Close')
               span(aria-hidden='true') &times;
           .modal-body
+            #registerMessage.d-none
             +classInfoTable
             h2.fee Học phí: #[span.amount= formatPrice(classInfo.HOC_PHI)]
           .modal-footer
             button.us-btn.btn-secondary(type='button' data-dismiss='modal') Huỷ bỏ
-            button.us-btn.us-btn-primary(type='button') Thanh toán
+            button#paymentBtn.us-btn.us-btn-primary(type='button' data-user-id=user.MA_ND data-class-id=classInfo.MA_LH) 
+              span.mr-2 Thanh toán
+              i#loadIcon.d-none.fas.fa-spinner
 
 block script 
   script(src="/scripts/header.js") 
+  script(src="/scripts/course-register.js") 

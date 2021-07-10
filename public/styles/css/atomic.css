@@ -113,6 +113,10 @@
 .us-btn-accent {
   background-color: var(--accent-color);
 }
+.us-btn.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
 
 .us-title {
   font-size: 3.6rem;
@@ -189,6 +193,28 @@
   height: 1px;
   background-color: var(--light-grey);
   margin: 1rem 0;
+}
+
+.ani-spin {
+  -webkit-animation: spinAni 0.65s linear infinite;
+  animation: spinAni 0.65s linear infinite;
+}
+
+@-webkit-keyframes spinAni {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinAni {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=atomic.css.map */

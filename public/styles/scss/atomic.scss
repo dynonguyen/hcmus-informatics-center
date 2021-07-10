@@ -128,6 +128,11 @@
   &-accent {
     background-color: var(--accent-color);
   }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+  }
 }
 
 // title
@@ -217,4 +222,28 @@
   height: 1px;
   background-color: var(--light-grey);
   margin: 1rem 0;
+}
+
+// animation
+.ani-spin {
+  -webkit-animation: spinAni 0.65s linear infinite;
+  animation: spinAni 0.65s linear infinite;
+}
+
+@-webkit-keyframes spinAni {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinAni {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

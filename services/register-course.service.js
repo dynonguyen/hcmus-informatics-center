@@ -19,3 +19,16 @@ exports.getClassInfo = async (courseId) => {
 		throw error;
 	}
 };
+
+exports.isExistStudentInClass = async (userId, classId) => {
+	try {
+		console.log(userId);
+		console.log(classId);
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `SELECT * FROM dbo.HV_LH WHERE MA_HV = '${userId}' AND MA_LH = '${classId}'`;
+		const result = await pool.request().query(queryStr);
+		console.log(result);
+	} catch (error) {
+		throw error;
+	}
+};
