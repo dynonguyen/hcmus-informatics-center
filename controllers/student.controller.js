@@ -1,8 +1,9 @@
-const { formatDate } = require('../helper');
+const { formatDate, formatFullDate, strToTime } = require('../helper');
 const {
 	getStudentInfo: getStudentInfoService,
 	getLearningResult,
 	getStudentTimetable,
+	getStuExamCalendar,
 } = require('../services/student.service');
 
 exports.getStudentInfo = async (req, res, next) => {
@@ -68,5 +69,28 @@ exports.getTimeTable = async (req, res, next) => {
 	} catch (error) {
 		console.error('GET TIMETABLE ERROR: ', error);
 		return res.status(503).render('404.pug');
+	}
+};
+
+exports.getExamCalendar = async (req, res) => {
+	try {
+		const { MA_ND } = res.locals?.user;
+		if (!MA_ND) {
+			return res.render('404.pug');
+		}
+
+		const list = await getStuExamCalendar(MA_ND);
+
+		return res.render('exam-calendar.pug', {
+			key: 'exam',
+			list: list.map((i) => ({
+				...i,
+				NGAY_THI: formatFullDate(`${new Date(i.NGAY_THI).toUTCString()}+0700`),
+			})),
+			strToTime,
+		});
+	} catch (error) {
+		console.error('GET EXAM CALENDAR ERROR: ', error);
+		return res.render('404.pug');
 	}
 };

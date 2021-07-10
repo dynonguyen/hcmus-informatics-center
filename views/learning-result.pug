@@ -13,7 +13,6 @@ block content
       table#resultTable.table.table-hover.table-striped.table-bordered.result-table
         thead.thead-dark
           tr
-            th(scope='col') STT
             th(scope='col') Mã Môn Học
             th(scope='col') Mã lớp học
             th(scope='col') Tên môn học
@@ -25,7 +24,6 @@ block content
         each value, index in list
           tbody
             tr
-              th= index+1
               td= value.MA_MH
               td= value.MA_LH
               td= value.TEN_MH

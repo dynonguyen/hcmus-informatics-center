@@ -86,7 +86,7 @@
   height: 2.8rem;
   font-size: 1.4rem;
   transition: all 0.25s ease-in-out;
-  color: var(--white);
+  color: var(--white) !important;
   border: none;
   cursor: pointer;
 }

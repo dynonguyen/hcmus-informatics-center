@@ -106,7 +106,7 @@
   @include input-button;
   @include transition;
 
-  color: var(--white);
+  color: var(--white) !important;
   border: none;
   cursor: pointer;
 

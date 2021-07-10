@@ -553,7 +553,7 @@ INSERT INTO dbo.DE_THI (
 )
 VALUES
 ( 'MD-MH-001',        -- MA_DE - varchar(10)
-  '2021-07-12 10:00:00 AM', -- NGAY_THI - datetime
+  '2021-07-12 15:00:00', -- NGAY_THI - datetime
   60,
   'MH-001',         -- MA_MH - varchar(10),
   'PH-001'
@@ -569,7 +569,7 @@ INSERT INTO dbo.DE_THI (
 )
 VALUES
 ( 'MD-MH-002',        -- MA_DE - varchar(10)
-  '2021-07-13 9:00:00 AM', -- NGAY_THI - datetime
+  '2021-07-13 09:45:00', -- NGAY_THI - datetime
   90,
   'MH-002',         -- MA_MH - varchar(10)
   'PH-002'
@@ -585,9 +585,13 @@ INSERT INTO dbo.DE_THI (
 )
 VALUES
 ( 'MD-MH-003',        -- MA_DE - varchar(10)
-  '2021-07-10 5:00:00 PM', -- NGAY_THI - datetime
+  '2021-07-10 11:30:00', -- NGAY_THI - datetime
   30,
   'MH-003',         -- MA_MH - varchar(10)
   'PH-003'
   )
 GO
+
+
+
+DELETE FROM dbo.DE_THI;

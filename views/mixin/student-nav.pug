@@ -14,10 +14,12 @@ mixin student-nav
         li.nav-item(class=`${key === 'result' ? 'active' : ''}`)
           a.nav-link(href=`/user/${user.MA_ND}/learning-result`) Tra cứu kết quả học tập
         li.nav-item(class=`${key === 'timetable' ? 'active' : ''}`)
-          a.nav-link(href=`/user/${user.MA_ND}/timetable`) Xem thời khoá biểu 
+          a.nav-link(href=`/user/${user.MA_ND}/timetable`) Thời khoá biểu 
         li.nav-item(class=`${key === 'exam' ? 'active' : ''}`)
-          a.nav-link(href=`/user/${user.MA_ND}/exam`) Làm bài thi - kiểm tra
+          a.nav-link(href=`/user/${user.MA_ND}/exam-calendar`) Làm kiểm tra
         li.nav-item(class=`${key === 're-exam' ? 'active' : ''}`)
           a.nav-link(href=`/user/${user.MA_ND}/re-exam`) Đăng ký thi lại
+        li.nav-item(class=`${key === 'thematic' ? 'active' : ''}`)
+          a.nav-link(href=`/user/${user.MA_ND}/thematic`) Đăng ký chuyên đề
      
 

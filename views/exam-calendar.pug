@@ -13,24 +13,24 @@ block content
       table.table.table-hover.table-striped.table-bordered.result-table
         thead.thead-dark
           tr
-            th(scope='col') Mã Môn Học
             th(scope='col') Mã lớp học
+            th(scope='col') Mã Môn Học
             th(scope='col') Tên môn học
-            th(scope='col') Phòng học
-            th(scope='col') Ngày bắt đầu
-            th(scope='col') Lịch học
-            th(scope='col') Thời gian học
+            th(scope='col') Phòng thi
+            th(scope='col') Ngày thi
+            th(scope='col') Thời gian làm bài
+            th(scope='col') #
           each value, index in list
             tbody
               tr
-                td= value.MA_MH
                 td= value.MA_LH
+                td= value.MA_MH
                 td= value.TEN_MH
-                td= value.TEN_PHONG
-                td= formatDate(value.NGAY_KHAI_GIANG)
-                td= value.BUOI_HOC
-                td= value.THOI_GIAN_HOC 
-              
-
+                td= value.PHONG_THI
+                td= value.NGAY_THI
+                td= value.TG_THI
+                td  
+                  if new Date() >= strToTime(value.NGAY_THI) && new Date() < new Date(strToTime(value.NGAY_THI).getTime() + parseInt(value.TG_THI) * 60000)
+                    a.us-btn.us-btn-accent(href="#") Thực hiện thi
 block script 
   script(src="/scripts/learning-result.js")

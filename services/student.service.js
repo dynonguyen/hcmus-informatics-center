@@ -42,3 +42,17 @@ exports.getStudentTimetable = async (userId) => {
 		throw error;
 	}
 };
+
+exports.getStuExamCalendar = async (userId) => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `EXEC dbo.SP_GET_EXAM_CALENDAR @studentId = '${userId}'`;
+
+		const result = await pool.request().query(queryStr);
+		pool.close();
+
+		return result?.recordset;
+	} catch (error) {
+		throw error;
+	}
+};
