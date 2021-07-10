@@ -462,7 +462,7 @@ INSERT INTO dbo.MON_HOC (
   BUOI_HOC
 )
 VALUES
-( 'MH_001',  -- MA_MH - varchar(10)
+( 'MH-001',  -- MA_MH - varchar(10)
   'LH-001',  -- MA_LH - varchar(10)
   N'Photoshop cơ bản', -- TEN_MH - nvarchar(100)
   N'Học về các thao tác cơ bản trên Photoshop CC, đồ án cuối môn', -- CT_MH - nvarchar(200)
@@ -543,3 +543,51 @@ VALUES
   )
 GO
 
+-- THEM DE THI --
+INSERT INTO dbo.DE_THI (
+  MA_DE,
+  NGAY_THI,
+  TG_THI,
+  MA_MH,
+  PHONG_THI
+)
+VALUES
+( 'MD-MH-001',        -- MA_DE - varchar(10)
+  '2021-07-12 10:00:00 AM', -- NGAY_THI - datetime
+  60,
+  'MH-001',         -- MA_MH - varchar(10),
+  'PH-001'
+  )
+GO
+
+INSERT INTO dbo.DE_THI (
+  MA_DE,
+  NGAY_THI,
+  TG_THI,
+  MA_MH,
+  PHONG_THI
+)
+VALUES
+( 'MD-MH-002',        -- MA_DE - varchar(10)
+  '2021-07-13 9:00:00 AM', -- NGAY_THI - datetime
+  90,
+  'MH-002',         -- MA_MH - varchar(10)
+  'PH-002'
+  )
+GO
+
+INSERT INTO dbo.DE_THI (
+  MA_DE,
+  NGAY_THI,
+  TG_THI,
+  MA_MH,
+  PHONG_THI
+)
+VALUES
+( 'MD-MH-003',        -- MA_DE - varchar(10)
+  '2021-07-10 5:00:00 PM', -- NGAY_THI - datetime
+  30,
+  'MH-003',         -- MA_MH - varchar(10)
+  'PH-003'
+  )
+GO
