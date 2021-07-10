@@ -1,4 +1,5 @@
 /// <reference path="D:\tips\typings\jquery\globals\jquery\index.d.ts" />
+let flag = true;
 
 $(document).ready(function () {
 	const scrollBtn = $('#scrollBtn');
@@ -6,18 +7,21 @@ $(document).ready(function () {
 	// Sự kiện scroll và show nút scroll top
 	window.addEventListener('scroll', function () {
 		const pageY = window.pageYOffset;
-		if (pageY > 550) {
-			if (scrollBtn.hasClass('fa-chevron-square-down')) {
+
+		if (pageY > 550 && flag) {
+			if (scrollBtn.hasClass('fa-chevron-circle-down')) {
 				scrollBtn
-					.removeClass('fa-chevron-square-down')
-					.addClass('fa-chevron-square-up');
+					.removeClass('fa-chevron-circle-down')
+					.addClass('fa-chevron-circle-up');
 			}
-		} else {
-			if (scrollBtn.hasClass('fa-chevron-square-up')) {
+			flag = false;
+		} else if (pageY <= 550 && !flag) {
+			if (scrollBtn.hasClass('fa-chevron-circle-up')) {
 				scrollBtn
-					.removeClass('fa-chevron-square-up')
-					.addClass('fa-chevron-square-down');
+					.removeClass('fa-chevron-circle-up')
+					.addClass('fa-chevron-circle-down');
 			}
+			flag = true;
 		}
 	});
 
