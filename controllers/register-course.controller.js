@@ -3,6 +3,7 @@ const { getUserInfo } = require('../services/common.service');
 const {
 	getClassInfo,
 	isExistStudentInClass,
+	registerCourse,
 } = require('../services/register-course.service');
 
 exports.getRegisterCoursePage = async (req, res) => {
@@ -47,8 +48,19 @@ exports.postRegisterCourse = async (req, res, next) => {
 
 		// kiem tra hoc vien da dang ky khoa hoc chua
 		const isExist = await isExistStudentInClass(MA_ND, classId);
+		if (isExist) {
+			return res.status(409).json({ message: 'Bạn đã đăng ký khoá học này !' });
+		}
 
-		res.status(406).json({ message: 'Đăng ký thành công' });
+		// dang ky khoa hoc
+		const isSuccess = await registerCourse(MA_ND, classId);
+		if (isSuccess) {
+			return res.status(200).json({ message: 'Đăng ký thành công' });
+		}
+
+		return res
+			.status(406)
+			.json({ message: 'Đăng ký không thành công. Thử lại' });
 	} catch (error) {
 		console.error('POST REGISTER COURSE ERROR: ', error);
 		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
