@@ -591,3 +591,124 @@ VALUES
   'PH-003'
   )
 GO
+
+-- THEM CAU HOI DE THI --
+INSERT INTO dbo.CAU_HOI (
+  STT,
+  ID_MA_DE,
+  CAU_HOI,
+  CAU_TL_1,
+  CAU_TL_2,
+  CAU_TL_3,
+  CAU_TL_4,
+  DAN_AN,
+  DIEM
+)
+VALUES
+( 1,   -- STT - int
+  1,   -- ID_MA_DE - int
+  N'Màu ngầm định trong photoshop (Foreground/ background) là gì?', -- CAU_HOI - nvarchar(256)
+  N'Trắng/ Đen', -- CAU_TL_1 - nvarchar(256)
+  N'Trắng/ Trong suốt', -- CAU_TL_2 - nvarchar(256)
+  N'Đen/ Trắng', -- CAU_TL_3 - nvarchar(256)
+  N'Đen/ Trong suốt', -- CAU_TL_4 - nvarchar(256)
+  3,   -- DAN_AN - smallint
+  1  -- DIEM - float
+  )
+GO
+
+INSERT INTO dbo.CAU_HOI (
+  STT,
+  ID_MA_DE,
+  CAU_HOI,
+  CAU_TL_1,
+  CAU_TL_2,
+  CAU_TL_3,
+  CAU_TL_4,
+  DAN_AN,
+  DIEM
+)
+VALUES
+( 2,   -- STT - int
+  1,   -- ID_MA_DE - int
+  N'Câu lệnh File\ Open cho phép mở ảnh có định dạng ?', -- CAU_HOI - nvarchar(256)
+  N'JPG', -- CAU_TL_1 - nvarchar(256)
+  N'GIF', -- CAU_TL_2 - nvarchar(256)
+  N'PSD', -- CAU_TL_3 - nvarchar(256)
+  N'Tất cả các định dạng file ảnh trên', -- CAU_TL_4 - nvarchar(256)
+  4,   -- DAN_AN - smallint
+  1  -- DIEM - float
+  )
+GO
+
+INSERT INTO dbo.CAU_HOI (
+  STT,
+  ID_MA_DE,
+  CAU_HOI,
+  CAU_TL_1,
+  CAU_TL_2,
+  CAU_TL_3,
+  CAU_TL_4,
+  DAN_AN,
+  DIEM
+)
+VALUES
+( 3,   -- STT - int
+  1,   -- ID_MA_DE - int
+  N'Công cụ Move Tool có tác dụng ?', -- CAU_HOI - nvarchar(256)
+  N'Sao chép ảnh', -- CAU_TL_1 - nvarchar(256)
+  N'Để di chuyển đối tượng và gióng hàng các đối tượng trên các Layer', -- CAU_TL_2 - nvarchar(256)
+  N'Tạo viền vùng trọn', -- CAU_TL_3 - nvarchar(256)
+  N'Tô vẽ hình ảnh', -- CAU_TL_4 - nvarchar(256)
+  2,   -- DAN_AN - smallint
+  1  -- DIEM - float
+  )
+GO
+
+INSERT INTO dbo.CAU_HOI (
+  STT,
+  ID_MA_DE,
+  CAU_HOI,
+  CAU_TL_1,
+  CAU_TL_2,
+  CAU_TL_3,
+  CAU_TL_4,
+  DAN_AN,
+  DIEM
+)
+VALUES
+( 4,   -- STT - int
+  1,   -- ID_MA_DE - int
+  N'Phát biểu nào sau đây là sai để đổ màu cho vùng chọn ?', -- CAU_HOI - nvarchar(256)
+  N'Edit/Fill : Foreground', -- CAU_TL_1 - nvarchar(256)
+  N'ALt + Backspac', -- CAU_TL_2 - nvarchar(256)
+  N'Ctrl + Backspace', -- CAU_TL_3 - nvarchar(256)
+  N'Image/ Dulipcate', -- CAU_TL_4 - nvarchar(256)
+  4,   -- DAN_AN - smallint
+  1  -- DIEM - float
+  )
+GO
+
+INSERT INTO dbo.CAU_HOI (
+  STT,
+  ID_MA_DE,
+  CAU_HOI,
+  CAU_TL_1,
+  CAU_TL_2,
+  CAU_TL_3,
+  CAU_TL_4,
+  DAN_AN,
+  DIEM
+)
+VALUES
+( 5,   -- STT - int
+  1,   -- ID_MA_DE - int
+  N'Tùy chọn nào dưới đây không có trong thiết lập Position của hiệu ứng Stroke của Layer Style ?', -- CAU_HOI - nvarchar(256)
+  N'Outside', -- CAU_TL_1 - nvarchar(256)
+  N'Inside', -- CAU_TL_2 - nvarchar(256)
+  N'Center', -- CAU_TL_3 - nvarchar(256)
+  N'Color', -- CAU_TL_4 - nvarchar(256)
+  4,   -- DAN_AN - smallint
+  1  -- DIEM - float
+  )
+GO
