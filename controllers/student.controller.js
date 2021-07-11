@@ -94,3 +94,12 @@ exports.getExamCalendar = async (req, res) => {
 		return res.render('404.pug');
 	}
 };
+
+exports.getExam = async (req, res) => {
+	try {
+		return res.render('exam.pug');
+	} catch (error) {
+		console.error('GET EXAM ERROR: ', error);
+		return res.render('404.pug');
+	}
+};

@@ -31,6 +31,6 @@ block content
                 td= value.TG_THI
                 td  
                   if new Date() >= strToTime(value.NGAY_THI) && new Date() < new Date(strToTime(value.NGAY_THI).getTime() + parseInt(value.TG_THI) * 60000)
-                    a.us-btn.us-btn-accent(href="#") Thực hiện thi
+                    a.us-btn.us-btn-accent(href=`/user/${user.MA_ND}/exam/${value.MA_MH}`) Thực hiện thi
 block script 
   script(src="/scripts/learning-result.js")
