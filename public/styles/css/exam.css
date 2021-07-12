@@ -36,7 +36,7 @@
 
 .exam-content {
   display: grid;
-  grid-template-columns: 3fr 3fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr;
   padding: 3.6rem 1.8rem;
   grid-gap: 1.6rem;
 }
@@ -63,10 +63,13 @@
   transition: all 0.35s;
 }
 .answer-item.selected {
-  background-color: #8ad4da;
+  background-color: #37949b;
 }
 .answer-item.selected .number {
   border-color: var(--white);
+  color: var(--white);
+}
+.answer-item.selected .content {
   color: var(--white);
 }
 .answer-item:hover, .answer-item:active {
@@ -91,7 +94,7 @@
 .question {
   padding: 1.2rem 2.4rem;
   background-color: var(--body-bg-color);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--text-color);
   font-weight: 500;
   letter-spacing: 0.75px;
@@ -133,8 +136,8 @@
   cursor: pointer;
 }
 .sheet li.answered {
-  background-color: #8ad4da;
-  border-color: #8ad4da;
+  background-color: #37949b;
+  border-color: #37949b;
   color: var(--white);
 }
 
@@ -153,6 +156,18 @@
 .exam-footer .us-btn {
   height: 3.6rem;
   margin-left: 8px;
+}
+
+#confirmModal * {
+  font-size: 1.6rem;
+}
+
+#confirmModalLabel {
+  font-size: 2rem;
+}
+
+#confirmModalContent {
+  padding: 2rem 1.2rem;
 }
 
 /*# sourceMappingURL=exam.css.map */

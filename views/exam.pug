@@ -8,7 +8,7 @@ block content
     //- header
     section.exam-header.flex-center-between
       h1#examTitle.title
-      .submit-btn.flex-center Nộp bài
+      .submit-btn#submitBtn.flex-center Nộp bài
 
     //- content
     section.exam-content
@@ -23,15 +23,26 @@ block content
       .sheet-wrap 
         h2.sheet-title Bảng câu trả lời
         ul.sheet#sheet
-        
+
     //- footer
     section.exam-footer.flex-center-between
       .time-left #[u Thời gian còn lại]: #[span.time#timeLeft]
       .button-group
-        button.us-btn.us-btn-primary 
-          span= `<< Quay lại câu cũ`
-         
-        button.us-btn.us-btn-secondary= `Câu kế tiếp >>`
+        button#prevBtn.us-btn.us-btn-primary= `<< Quay lại câu cũ`
+        button#nextBtn.us-btn.us-btn-secondary= `Câu kế tiếp >>`
+
+  #confirmModal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#confirmModalLabel.modal-title Xác nhận nộp bài
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body#confirmModalContent
+        .modal-footer
+          button#closeModalBtn.btn.btn-secondary(type='button' data-dismiss='modal') Quay lại
+          button#confirmSubmitBtn.btn.btn-primary(type='button') Nộp bài
+
 
 block script
   script(src="/scripts/exam.js") 

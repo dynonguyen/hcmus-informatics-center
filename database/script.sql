@@ -154,37 +154,6 @@ WHERE ID_BAI_KT = @mabt;
 END;
 GO
 
---Danh sach tong hop hoc vien mon hoc va diem tuong ung
-SELECT HVMH.MA_HV, HO_TEN, HVMH.MA_MH, HVMH.DIEM_TB
-FROM dbo.HOC_VIEN_HOC_MH HVMH, dbo.NGUOI_DUNG
-WHERE HVMH.MA_HV = MA_ND
-GO
-
---To chuc thi
-GO
-CREATE PROCEDURE SP_CREATE_EXAM_ROOM
-	@ma_pt VARCHAR(10),
-	@ma_mh VARCHAR(10),
-	@ma_phong VARCHAR(10),
-	@tg_thi DATETIME
-AS 
-BEGIN
-	INSERT INTO dbo.PHONG_THI
-	(
-	    MA_PT,
-	    MA_MH,
-	    MA_PHONG,
-	    THOI_GIAN_THI
-	)
-	VALUES
-	(   @ma_pt,     -- MA_PT - varchar(10)
-	    @ma_mh,     -- MA_PHONG - varchar(10)
-	    @ma_phong,     -- MA_MH - varchar(10)
-	    @tg_thi -- THOI_GIAN_THI - datetime
-	    )
-END
-GO
-
 -- lay thong tin chi tiet cua mot hoc vien
 CREATE PROCEDURE SP_GET_STUDENT_INFO (@studentId VARCHAR(50))
 AS
