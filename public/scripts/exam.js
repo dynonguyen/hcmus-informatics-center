@@ -4,15 +4,50 @@ const LS_QUESTION_KEY = 'questions';
 const LS_CURRENT_KEY = 'current-question';
 const LS_ANSWERED_KEY = 'answered';
 const LS_SHEET = 'sheet';
+let ID_MA_DE = null;
 let questionLen = 0;
 let questionList = [];
 
 function countDown(deadline) {
 	const dl = new Date(deadline).getTime();
 
-	setInterval(() => {
+	let id = setInterval(() => {
 		const d = new Date().getTime();
 		const diff = dl - d;
+		if (diff < 0) {
+			clearInterval(id);
+
+			$.post(`http://localhost:8888/user/${userId}/submit-exam`, {
+				answerList,
+				examId: ID_MA_DE,
+			})
+				.done(function () {
+					$('#confirmModalContent').html(
+						'<div class="alert alert-success">Bạn đã hết giờ làm bài. Nộp bài thành công</div>',
+					);
+
+					$('#confirmModal').modal('show');
+
+					localStorage.removeItem(LS_ANSWERED_KEY);
+					localStorage.removeItem(LS_QUESTION_KEY);
+					localStorage.removeItem(LS_SHEET);
+					localStorage.removeItem(LS_CURRENT_KEY);
+					setTimeout(() => {
+						window.location.href = '/';
+					}, 2000);
+				})
+				.fail(function () {
+					$('#confirmModal').modal('show');
+					$('#confirmModalContent').html(
+						'<div class="alert alert-danger">Bạn đã hết giờ làm bài. Nộp bài thất bại, hãy thử lại</div>',
+					);
+					$('#confirmSubmitBtn').removeClass('disabled');
+					setTimeout(() => {
+						window.location.href = '/';
+					}, 2000);
+				});
+		}
+
 		const s = Math.round(diff / 1000);
 		const m = Math.round(s / 60);
 		$('#timeLeft').text(`${m}m ${s % 60}s`);
@@ -36,23 +71,23 @@ function renderQuestion(question) {
 	let answer = '';
 
 	if (CAU_TL_1 && CAU_TL_1 !== '') {
-		answer += `<li data-num=${STT} data-answer="A" class="answer-item ${
-			answered === 'A' ? 'selected' : ''
+		answer += `<li data-num=${STT} data-answer="1" class="answer-item ${
+			answered == '1' ? 'selected' : ''
 		}"><div class="number">A</div><p class="content">${CAU_TL_1}</p></li>`;
 	}
 	if (CAU_TL_2 && CAU_TL_2 !== '') {
-		answer += `<li data-num=${STT} data-answer="B" class="answer-item ${
-			answered === 'B' ? 'selected' : ''
+		answer += `<li data-num=${STT} data-answer="2" class="answer-item ${
+			answered == '2' ? 'selected' : ''
 		}"><div class="number">B</div><p class="content">${CAU_TL_2}</p></li>`;
 	}
 	if (CAU_TL_3 && CAU_TL_3 !== '') {
-		answer += `<li data-num=${STT} data-answer="C" class="answer-item ${
-			answered === 'C' ? 'selected' : ''
+		answer += `<li data-num=${STT} data-answer="3" class="answer-item ${
+			answered == '3' ? 'selected' : ''
 		}"><div class="number">C</div><p class="content">${CAU_TL_3}</p></li>`;
 	}
 	if (CAU_TL_4 && CAU_TL_4 !== '') {
-		answer += `<li data-num=${STT} data-answer="D" class="answer-item ${
-			answered === 'D' ? 'selected' : ''
+		answer += `<li data-num=${STT} data-answer="4" class="answer-item ${
+			answered == '4' ? 'selected' : ''
 		}"><div class="number">D</div><p class="content">${CAU_TL_4}</p></li>`;
 	}
 
@@ -127,6 +162,7 @@ $(document).ready(function () {
 	$.get(`http://localhost:8888/user/${userId}/exam-info/${examId}`)
 		.done(function (data) {
 			examInfo = data?.examInfo;
+			ID_MA_DE = examInfo.ID_MA_DE;
 			// Render Information
 			$('#examTitle').text(`Bài kiểm tra môn ${examInfo.TEN_MH}`);
 
@@ -219,8 +255,32 @@ $(document).ready(function () {
 	});
 
 	$('#confirmSubmitBtn').click(function () {
-		const answerList = JSON.parse(localStorage.getItem(LS_ANSWERED_KEY));
-		console.log(answerList);
+		let answerList = JSON.parse(localStorage.getItem(LS_ANSWERED_KEY));
+		const pathSplit = window.location.pathname.split('/');
+		const userId = pathSplit[2];
 		$(this).addClass('disabled');
+
+		$.post(`http://localhost:8888/user/${userId}/submit-exam`, {
+			answerList,
+			examId: ID_MA_DE,
+		})
+			.done(function () {
+				$('#confirmModalContent').html(
+					'<div class="alert alert-success">Nộp bài thành công</div>',
+				);
+				localStorage.removeItem(LS_ANSWERED_KEY);
+				localStorage.removeItem(LS_QUESTION_KEY);
+				localStorage.removeItem(LS_SHEET);
+				localStorage.removeItem(LS_CURRENT_KEY);
+				setTimeout(() => {
+					window.location.href = '/';
+				}, 2000);
+			})
+			.fail(function () {
+				$('#confirmModalContent').html(
+					'<div class="alert alert-danger">Nộp bài thất bại, hãy thử lại</div>',
+				);
+				$('#confirmSubmitBtn').removeClass('disabled');
+			});
 	});
 });

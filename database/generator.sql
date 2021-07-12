@@ -554,7 +554,7 @@ INSERT INTO dbo.DE_THI (
 VALUES
 ( 'MD-MH-001',        -- MA_DE - varchar(10)
   GETDATE(), -- NGAY_THI - datetime
-  60,
+  90,
   'MH-001',         -- MA_MH - varchar(10),
   'PH-001'
   )

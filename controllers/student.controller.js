@@ -6,6 +6,8 @@ const {
 	getStuExamCalendar,
 	getExamInfo: getExamInfoService,
 	getQuestionExam: getQuestionExamService,
+	createStudentExam,
+	createAnswerExam,
 } = require('../services/student.service');
 
 exports.getStudentInfo = async (req, res, next) => {
@@ -129,6 +131,36 @@ exports.getQuestionExam = async (req, res, next) => {
 		return res.status(200).json({ questions });
 	} catch (error) {
 		console.error('GET QUESTION EXAM ERROR: ', error);
+		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
+	}
+};
+
+exports.postSubmitExam = async (req, res, next) => {
+	try {
+		const { answerList, examId } = req.body;
+		if (!answerList || !examId) {
+			return res.status(406).json({ message: 'failed' });
+		}
+
+		const { MA_ND } = res.locals?.user;
+		if (!MA_ND) {
+			return res.status(406).json({ message: 'failed' });
+		}
+
+		// Tao bai kiem tra
+		const studentExamId = await createStudentExam(MA_ND, examId);
+		if (!studentExamId) {
+			return res.status(406).json({ message: 'failed' });
+		}
+
+		// Tao cac cau hoi cho bai KT
+		answerList.forEach((item) => {
+			createAnswerExam(studentExamId, item.num, item.answer);
+		});
+
+		return res.status(200).json({ message: 'success' });
+	} catch (error) {
+		console.error('POST SUBMIT EXAM ERROR: ', error);
 		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
 	}
 };

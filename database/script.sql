@@ -101,15 +101,6 @@ BEGIN
 END
 GO
 
-EXEC dbo.SP_GET_INFO_CLASS @courseId = 'LH-001' -- varchar(10)
-SELECT ND.HO_TEN, TH.EMAIL, ND.SDT FROM dbo.NGUOI_DUNG ND JOIN dbo.TAI_KHOAN TH ON TH.USERNAME = ND.MA_ND;
-
-
--- STAFF
-SELECT BKT.ID_BAI_KT,BKT.MA_PT AS MA_PHONG_THI, BKT.MA_HV AS MA_HOC_VIEN, BKT.DIEM, BKT.LOAI_BT 
-FROM dbo.BAI_KIEM_TRA BKT;
-GO
-
 ---Xem cac bai kiem tra cua mot hoc vien 
 CREATE PROCEDURE SP_GET_ALL_SCORE_TEST_HV
 @mahv varchar(20)
@@ -299,3 +290,38 @@ BEGIN
 END
 GO
 
+-- nop bai kiem tra
+CREATE PROCEDURE SP_ADD_STUDENT_EXAM (@studentId VARCHAR(20), @examId INT)
+AS
+BEGIN
+	INSERT INTO dbo.BAI_KIEM_TRA (
+	  ID_MA_DE,
+	  MA_HV,
+	  DIEM,
+	  LOAI_BT
+	)
+	VALUES
+	( @examId,   -- ID_MA_DE - int
+	  @studentId,  -- MA_HV - varchar(20)
+	  0.0, -- DIEM - float
+	  0    -- LOAI_BT - int
+	  )
+END
+GO
+
+-- tao cac cau tra loi cua bai nop
+CREATE PROCEDURE SP_ADD_ANSWER(@stt INT, @idBaiKT INT, @cauTL INT)
+AS
+BEGIN
+	INSERT INTO dbo.CAU_TRA_LOI (
+	  STT_CH,
+	  ID_BAI_KT,
+	  CAU_TL
+	)
+	VALUES
+	( @stt, -- STT_CH - int
+	  @idBaiKT, -- ID_BAI_KT - int
+	  @cauTL  -- CAU_TL - smallint
+	)
+END
+GO

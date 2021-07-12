@@ -21,4 +21,6 @@ studentRoute.get(
 	studentController.getQuestionExam,
 );
 
+studentRoute.post('/:id/submit-exam', studentController.postSubmitExam);
+
 module.exports = studentRoute;
