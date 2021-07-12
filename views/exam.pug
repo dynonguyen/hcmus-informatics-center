@@ -7,45 +7,26 @@ block content
   .exam-wrapper(oncopy="return false" oncut="return false" onpaste="return false")
     //- header
     section.exam-header.flex-center-between
-      h1.title Bài kiểm tra môn Photoshop cơ bản
+      h1#examTitle.title
       .submit-btn.flex-center Nộp bài
 
     //- content
     section.exam-content
       .question-wrap 
-        h2.question-title Câu 01
-        .question Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate eum ducimus voluptatum | dolorum perferendis itaque facilis aspernatur delectus? Vitae, mollitia.
+        h2#questionNum.question-title
+        .question#question Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate eum ducimus voluptatum | dolorum perferendis itaque facilis aspernatur delectus? Vitae, mollitia.
       
       .answer-wrap 
         h2.answer-title Chọn 1 câu trả lời
-        ul.answer
-          li.answer-item.selected
-            .number A
-            p.content Lorem ipsum dolor sit.
-          li.answer-item 
-            .number B
-            p.content Lorem ipsum dolor sit.
-          li.answer-item 
-            .number C
-            p.content Lorem ipsum dolor sit.
-          li.answer-item 
-            .number D
-            p.content Lorem ipsum dolor sit.
-
+        ul#answer.answer
+          
       .sheet-wrap 
         h2.sheet-title Bảng câu trả lời
-        ul.sheet
-          li 1
-          li 2
-          li 3
-          li 4
-          li 5
-          li 6
-          li.answered 7
-
+        ul.sheet#sheet
+        
     //- footer
     section.exam-footer.flex-center-between
-      .time-left #[u Thời gian còn lại]: #[span.time 19m 30s]
+      .time-left #[u Thời gian còn lại]: #[span.time#timeLeft]
       .button-group
         button.us-btn.us-btn-primary 
           span= `<< Quay lại câu cũ`

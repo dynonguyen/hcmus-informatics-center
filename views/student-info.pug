@@ -13,7 +13,7 @@ block content
       ul.info 
         h1.text-center.info-title Thông tin cá nhân
         li.info-avt
-          img(src=studentInfo.AVATAR)
+          img(src=`${studentInfo.AVATAR != null ? studentInfo.AVATAR : '/assets/icons/default-user.png'}`)
         li.info-item 
           span.label Email: 
           span.value= studentInfo.EMAIL

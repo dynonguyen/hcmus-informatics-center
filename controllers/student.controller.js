@@ -4,6 +4,8 @@ const {
 	getLearningResult,
 	getStudentTimetable,
 	getStuExamCalendar,
+	getExamInfo: getExamInfoService,
+	getQuestionExam: getQuestionExamService,
 } = require('../services/student.service');
 
 exports.getStudentInfo = async (req, res, next) => {
@@ -95,11 +97,38 @@ exports.getExamCalendar = async (req, res) => {
 	}
 };
 
-exports.getExam = async (req, res) => {
+exports.getExamPage = async (req, res) => {
 	try {
 		return res.render('exam.pug');
 	} catch (error) {
 		console.error('GET EXAM ERROR: ', error);
 		return res.render('404.pug');
+	}
+};
+
+exports.getExamInfo = async (req, res, next) => {
+	try {
+		const { examId } = req.params;
+		if (!examId) {
+			return res.status(406).json({ message: 'failed' });
+		}
+
+		const examInfo = await getExamInfoService(examId);
+
+		return res.status(200).json({ examInfo });
+	} catch (error) {
+		console.error('GET EXAM INFO ERROR: ', error);
+		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
+	}
+};
+
+exports.getQuestionExam = async (req, res, next) => {
+	try {
+		const { examId } = req.params;
+		const questions = await getQuestionExamService(examId);
+		return res.status(200).json({ questions });
+	} catch (error) {
+		console.error('GET QUESTION EXAM ERROR: ', error);
+		return res.status(503).json({ message: 'Lỗi dịch vụ, thử lại sau' });
 	}
 };

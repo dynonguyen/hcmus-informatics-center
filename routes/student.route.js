@@ -12,6 +12,13 @@ studentRoute.get('/:id/timetable', studentController.getTimeTable);
 
 studentRoute.get('/:id/exam-calendar', studentController.getExamCalendar);
 
-studentRoute.get('/:id/exam/:examId', studentController.getExam);
+studentRoute.get('/:id/exam/:examId', studentController.getExamPage);
+
+studentRoute.get('/:id/exam-info/:examId', studentController.getExamInfo);
+
+studentRoute.get(
+	'/:id/exam-question/:examId',
+	studentController.getQuestionExam,
+);
 
 module.exports = studentRoute;

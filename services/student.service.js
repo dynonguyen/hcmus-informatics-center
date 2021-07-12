@@ -56,3 +56,27 @@ exports.getStuExamCalendar = async (userId) => {
 		throw error;
 	}
 };
+
+exports.getExamInfo = async (courseId) => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `EXEC dbo.SP_GET_EXAM_INFO @courseId = '${courseId}'`;
+		const result = await pool.request().query(queryStr);
+		pool.close();
+		return result?.recordset[0];
+	} catch (error) {
+		throw error;
+	}
+};
+
+exports.getQuestionExam = async (examId) => {
+	try {
+		const pool = await sql.connect(sqlConfig);
+		const queryStr = `EXEC SP_GET_QUESTIONS @examId= '${examId}'`;
+		const result = await pool.request().query(queryStr);
+		pool.close();
+		return result?.recordset;
+	} catch (error) {
+		throw error;
+	}
+};
