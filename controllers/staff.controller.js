@@ -14,13 +14,19 @@ exports.getStudentsMark = async (req, res) => {
   try {
     const studentsMarkList = await getAllStudentsMark();
 
+    console.log("ngoai");
+
     if (studentsMarkList) {
+      console.log("trong");
       return res.render("students-mark.pug", {
         title: "Danh sách điểm của các học viên",
         studentsMarkList: studentsMarkList || [],
       });
+    } else {
+      return res.render("students-mark.pug");
     }
   } catch (error) {
+    console.log("error");
     console.log(error);
   }
 };
